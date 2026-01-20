@@ -53,11 +53,11 @@ Each topic below links directly to its detailed documentation in
 `docs/`:
 
 -   [Core Definitions](docs/definitions.md)
--   [Mathematics for ML](docs/mathematics.md)
+-   [Mathematics for ML](docs/mathematics-definitions.md)
 -   [Feature Engineering](docs/feature-engineering.md)
--   [Data Leakage](docs/data-leakage/README.md)
+-   [Data Leakage](docs/data-leakage.md)
 -   [Clustered Models](docs/clustered-models-examples.md)
--   [Non-Clustered Models](docs/nonclustered-models-examples.md)
+-   [Non-Clustered Models](docs/non-clustered-models-examples.md)
 -   [Feature Stores](docs/feature-stores.md)
 -   [MLOps](docs/mlops.md)
 -   [Model Deployment Strategies](docs/model-deployment-strategies.md)
