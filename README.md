@@ -9,7 +9,7 @@ aligned with **FAANG-style expectations for Machine Learning Engineers**
 
 ------------------------------------------------------------------------
 
-## 🎯 What This Signals to FAANG Recruiters
+## What skills does this repository demonstrate
 
 -   End-to-end ownership of ML systems (not just model building)
 -   Strong fundamentals in math, statistics, and optimization
@@ -20,7 +20,7 @@ aligned with **FAANG-style expectations for Machine Learning Engineers**
 
 ------------------------------------------------------------------------
 
-## 📌 Areas of Focus
+## Focus Areas
 
 -   Problem framing & success criteria
 -   Feature engineering & data leakage prevention
@@ -33,7 +33,7 @@ aligned with **FAANG-style expectations for Machine Learning Engineers**
 
 ------------------------------------------------------------------------
 
-## 🧱 Repository Structure
+## Repository Structure
 
 -   `case-studies/` -- End-to-end ML scenarios with business context
 -   `src/` -- Reusable feature, training, and inference pipelines
@@ -47,7 +47,7 @@ aligned with **FAANG-style expectations for Machine Learning Engineers**
 
 ------------------------------------------------------------------------
 
-## 📚 Referential Documentation Index
+## Referential Documentation Index
 
 Each topic below links directly to its detailed documentation in
 `docs/`:
