@@ -83,8 +83,6 @@ repository.
 
 ## Core Programming & ML Foundations
 
-*Signals: technical depth, reproducibility, and engineering discipline.*
-
 -   **Python** --- primary language for data, modeling, and pipelines\
     *Example:* (Insert Example Repo when completed)
 -   **NumPy** --- numerical computing, linear algebra, and optimization\
@@ -95,8 +93,6 @@ repository.
 ------------------------------------------------------------------------
 
 ## Modeling & Algorithms
-
-*Signals: sound model selection, tradeoffs, and rigor.*
 
 -   **scikit-learn** --- baseline models, pipelines, evaluation, and CV\
     *Example:* (Insert Example Repo when completed)
@@ -109,8 +105,6 @@ repository.
 ------------------------------------------------------------------------
 
 ## Feature Engineering & Data Quality
-
-*Signals: senior-level data thinking and leakage prevention.*
 
 -   **scikit-learn Pipelines** --- reproducible preprocessing +
     training\
@@ -128,8 +122,6 @@ repository.
 
 ## Experimentation & Model Evaluation
 
-*Signals: disciplined experimentation and business-aware evaluation.*
-
 -   **MLflow (or W&B)** --- experiment tracking and artifact logging\
     *Example:* (Insert Example Repo when completed)
 -   **scikit-learn Metrics** --- precision/recall, ROC-AUC, calibration\
@@ -141,8 +133,6 @@ repository.
 ------------------------------------------------------------------------
 
 ## MLOps & Production Systems
-
-*Signals: real-world ML system design (not just notebooks).*
 
 -   **Docker** --- containerized training and inference\
     *Example:* (Insert Example Repo when completed)
@@ -158,9 +148,6 @@ repository.
 
 ## Feature Stores & Data Platforms
 
-*Signals: enterprise-scale data awareness and training/serving
-consistency.*
-
 -   **Databricks Feature Store (conceptual + examples)**\
     *Example:* (Insert Example Repo when completed)
 -   **Delta Lake / Iceberg** --- reliable, versioned data lakes\
@@ -172,8 +159,6 @@ consistency.*
 ------------------------------------------------------------------------
 
 ## Deployment & Reliability
-
-*Signals: safe rollouts and production reliability.*
 
 -   **Batch / Streaming / Real-Time Inference Patterns**\
     *Example:* (Insert Example Repo when completed)
@@ -187,8 +172,6 @@ consistency.*
 
 ## Responsible AI (Bias & Fairness)
 
-*Signals: mature, real-world ML judgment.*
-
 -   **Fairness Metrics (Demographic Parity, Equal Opportunity, Equalized
     Odds)**\
     *Example:* (Insert Example Repo when completed)
@@ -200,8 +183,6 @@ consistency.*
 ------------------------------------------------------------------------
 
 ## Mathematics & Optimization
-
-*Signals: interview readiness and conceptual depth.*
 
 -   **NumPy Linear Algebra** --- vectors, matrices, norms, distances\
     *Example:* (Insert Example Repo when completed)
