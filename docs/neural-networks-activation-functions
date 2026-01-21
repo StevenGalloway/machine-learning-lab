@@ -200,8 +200,6 @@ Cannot represent independent probabilities
 
 # Interview-Level Takeaways
 
-Recruiters and ML engineers expect you to know:
-
 -   Why **ReLU dominates hidden layers**
 -   Why **Softmax pairs with cross-entropy**
 -   Why **Sigmoid causes vanishing gradients**
@@ -210,7 +208,3 @@ Recruiters and ML engineers expect you to know:
     -   Gradient flow
     -   Model expressiveness
     -   Training stability
-
-Mastering activation functions demonstrates: You understand neural
-networks at a mathematical and system level --- not just at an API
-level.
