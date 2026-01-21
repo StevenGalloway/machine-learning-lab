@@ -83,23 +83,23 @@ repository.
 
 ## Core Programming & ML Foundations
 
--   **Python** --- primary language for data, modeling, and pipelines\
+-   **Python** --- primary language for data, modeling, and pipelines
     *Example:* (Insert Example Repo when completed)
--   **NumPy** --- numerical computing, linear algebra, and optimization\
+-   **NumPy** --- numerical computing, linear algebra, and optimization
     *Example:* (Insert Example Repo when completed)
--   **Pandas** --- data manipulation, feature engineering, and analysis\
+-   **Pandas** --- data manipulation, feature engineering, and analysis
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
 
 ## Modeling & Algorithms
 
--   **scikit-learn** --- baseline models, pipelines, evaluation, and CV\
+-   **scikit-learn** --- baseline models, pipelines, evaluation, and CV
     *Example:* (Insert Example Repo when completed)
--   **XGBoost / LightGBM** --- high-performance tabular modeling\
+-   **XGBoost / LightGBM** --- high-performance tabular modeling
     *Example:* (Insert Example Repo when completed)
 -   **PyTorch** --- representation learning and deep models (when
-    appropriate)\
+    appropriate)
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
@@ -107,65 +107,65 @@ repository.
 ## Feature Engineering & Data Quality
 
 -   **scikit-learn Pipelines** --- reproducible preprocessing +
-    training\
+    training
     *Example:* (Insert Example Repo when completed)
 -   **Feature Selection (Filter/Wrapper/Embedded)** --- dimensionality
-    control\
+    control
     *Example:* (Insert Example Repo when completed)
--   **Missing Value Imputation** --- robust handling of incomplete data\
+-   **Missing Value Imputation** --- robust handling of incomplete data
     *Example:* (Insert Example Repo when completed)
 -   **Data Validation (Great Expectations)** --- data quality gates
-    (optional)\
+    (optional)
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
 
 ## Experimentation & Model Evaluation
 
--   **MLflow (or W&B)** --- experiment tracking and artifact logging\
+-   **MLflow (or W&B)** --- experiment tracking and artifact logging
     *Example:* (Insert Example Repo when completed)
--   **scikit-learn Metrics** --- precision/recall, ROC-AUC, calibration\
+-   **scikit-learn Metrics** --- precision/recall, ROC-AUC, calibration
     *Example:* (Insert Example Repo when completed)
 -   **Slice-Based Evaluation** --- performance by segment (fairness +
-    reliability)\
+    reliability)
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
 
 ## MLOps & Production Systems
 
--   **Docker** --- containerized training and inference\
+-   **Docker** --- containerized training and inference
     *Example:* (Insert Example Repo when completed)
--   **FastAPI** --- real-time model serving APIs\
+-   **FastAPI** --- real-time model serving APIs
     *Example:* (Insert Example Repo when completed)
 -   **GitHub Actions (CI/CD for ML)** --- automated tests and
-    deployments\
+    deployments
     *Example:* (Insert Example Repo when completed)
--   **Model Registry (MLflow)** --- versioning, approvals, and rollback\
+-   **Model Registry (MLflow)** --- versioning, approvals, and rollback
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
 
 ## Feature Stores & Data Platforms
 
--   **Databricks Feature Store (conceptual + examples)**\
+-   **Databricks Feature Store (conceptual + examples)**
     *Example:* (Insert Example Repo when completed)
--   **Delta Lake / Iceberg** --- reliable, versioned data lakes\
+-   **Delta Lake / Iceberg** --- reliable, versioned data lakes
     *Example:* (Insert Example Repo when completed)
 -   **Feast (open-source feature store)** --- portable feature
-    management\
+    management
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
 
 ## Deployment & Reliability
 
--   **Batch / Streaming / Real-Time Inference Patterns**\
+-   **Batch / Streaming / Real-Time Inference Patterns**
     *Example:* (Insert Example Repo when completed)
 -   **Canary Releases & Shadow Testing** --- risk-controlled
-    deployments\
+    deployments
     *Example:* (Insert Example Repo when completed)
--   **Monitoring (Drift, Latency, Errors, Fairness)**\
+-   **Monitoring (Drift, Latency, Errors, Fairness)**
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
@@ -173,21 +173,21 @@ repository.
 ## Responsible AI (Bias & Fairness)
 
 -   **Fairness Metrics (Demographic Parity, Equal Opportunity, Equalized
-    Odds)**\
+    Odds)**
     *Example:* (Insert Example Repo when completed)
--   **Bias-Aware Training & Calibration**\
+-   **Bias-Aware Training & Calibration**
     *Example:* (Insert Example Repo when completed)
--   **Model Cards & Documentation**\
+-   **Model Cards & Documentation**
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
 
 ## Mathematics & Optimization
 
--   **NumPy Linear Algebra** --- vectors, matrices, norms, distances\
+-   **NumPy Linear Algebra** --- vectors, matrices, norms, distances
     *Example:* (Insert Example Repo when completed)
--   **Gradient Descent (from scratch)** --- optimization intuition\
+-   **Gradient Descent (from scratch)** --- optimization intuition
     *Example:* (Insert Example Repo when completed)
 -   **Probability & Statistics in ML** --- Bayes, distributions,
-    uncertainty\
+    uncertainty
     *Example:* (Insert Example Repo when completed)
