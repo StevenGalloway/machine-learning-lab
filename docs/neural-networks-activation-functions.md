@@ -1,3 +1,230 @@
+# Neural Networks -- A Practical Overview
+
+Neural networks are the foundation of modern machine learning systems
+used in computer vision, natural language processing, recommendation
+engines, speech recognition, and large language models.
+
+------------------------------------------------------------------------
+
+## What is a Neural Network? (Definition)
+
+A **neural network** is a computational model inspired by the human
+brain that learns patterns by transforming input data through layers of
+interconnected units called **neurons**.
+
+At a high level, a neural network learns a function:
+
+f(x) → y
+
+Where: - **x** = input data (features) - **y** = predicted output -
+**f** = learned mapping through layers of neurons
+
+Neural networks are especially powerful because they can learn
+**non-linear relationships** and complex representations automatically
+from data.
+
+------------------------------------------------------------------------
+
+## How Neural Networks Work
+
+At a system level, neural networks operate in two main phases:
+
+1.  **Forward Pass** -- compute predictions
+2.  **Backward Pass (Backpropagation)** -- update weights based on error
+
+### High-Level Flow
+
+``` mermaid
+flowchart LR
+    A[Input Data] --> B[Hidden Layers]
+    B --> C[Output Layer]
+    C --> D[Loss Function]
+    D --> E[Backpropagation]
+    E --> B
+```
+
+------------------------------------------------------------------------
+
+## Core Components Explained
+
+### Neurons
+
+A **neuron** is a mathematical unit that: - Receives input signals -
+Applies weights - Adds bias - Passes result through an activation
+function
+
+Mathematically: z = wᵀx + b
+a = f(z)
+
+------------------------------------------------------------------------
+
+### Inputs & Outputs
+
+-   **Inputs:** Feature values (images, text embeddings, sensor
+    readings)
+-   **Outputs:** Predictions (class labels, probabilities, continuous
+    values)
+
+------------------------------------------------------------------------
+
+### Weights
+
+Weights represent **learned importance** of each input. - High weight →
+strong influence - Low weight → weak influence
+
+------------------------------------------------------------------------
+
+### Bias
+
+Bias allows the model to shift predictions even when inputs are zero. -
+Acts as a baseline offset
+
+------------------------------------------------------------------------
+
+### Signals
+
+Signals are the numerical values flowing through the network between
+layers.
+
+------------------------------------------------------------------------
+
+### Layers
+
+Neural networks are organized into layers:
+
+``` mermaid
+flowchart LR
+    A[Input Layer] --> B[Hidden Layer 1]
+    B --> C[Hidden Layer 2]
+    C --> D[Output Layer]
+```
+
+#### Input Layer
+
+-   Receives raw features
+-   No computation
+
+#### Hidden Layers
+
+-   Perform transformations
+-   Learn representations
+-   Depth = number of hidden layers
+
+#### Output Layer
+
+-   Produces final prediction
+-   Uses task-specific activation (sigmoid, softmax, linear)
+
+#### Layer Width & Depth
+
+-   **Width:** number of neurons in a layer
+-   **Depth:** number of layers
+
+More depth → more representational power
+More width → more feature capacity
+
+------------------------------------------------------------------------
+
+## Loss Functions
+
+The **loss function** measures how wrong the prediction is.
+
+Examples: - Mean Squared Error (regression) - Cross-Entropy
+(classification) - Binary Log Loss
+
+Loss drives learning by providing an optimization signal.
+
+------------------------------------------------------------------------
+
+## Backpropagation
+
+Backpropagation computes gradients of loss with respect to weights.
+
+``` mermaid
+flowchart LR
+    A[Prediction] --> B[Loss]
+    B --> C[Gradient]
+    C --> D[Weight Update]
+```
+
+This allows the model to: - Reduce error - Adjust internal
+representations - Learn from mistakes
+
+------------------------------------------------------------------------
+
+## Sensitivity & Influence
+
+### Sensitivity
+
+How much output changes when input changes.
+
+High sensitivity → model reacts strongly to small changes.
+
+### Influence
+
+How much a specific feature contributes to prediction. Measured via: -
+Gradients - SHAP values - Feature attribution methods
+
+------------------------------------------------------------------------
+
+## Use Cases
+
+Neural networks are used when patterns are complex and high-dimensional.
+
+### Common Applications
+
+-   Image classification (CNNs)
+-   Language translation (Transformers)
+-   Recommendation systems
+-   Speech recognition
+-   Autonomous systems
+-   Time-series forecasting
+
+------------------------------------------------------------------------
+
+## Pros & Cons
+
+### Pros
+
+-   Learns complex nonlinear patterns
+-   Works on unstructured data
+-   End-to-end learning
+-   State-of-the-art performance
+
+### Cons
+
+-   Requires large datasets
+-   Computationally expensive
+-   Hard to interpret
+-   Sensitive to hyperparameters
+
+------------------------------------------------------------------------
+
+## When Should You Use Neural Networks?
+
+Use neural networks when: - You have large amounts of data - Features
+are complex or unstructured - Traditional models underperform -
+Performance is more important than interpretability
+
+Avoid when: - Data is small - Interpretability is critical - Simpler
+models already perform well
+
+------------------------------------------------------------------------
+
+## Example Repositories
+
+Basic Feedforward Network
+(Insert Example Repo when completed)
+
+Image Classifier (CNN)
+(Insert Example Repo when completed)
+
+Transformer Model
+(Insert Example Repo when completed)
+
+------------------------------------------------------------------------
+
+
 # Activation Functions in Neural Networks
 
 Activation functions are a core component of neural networks. They
