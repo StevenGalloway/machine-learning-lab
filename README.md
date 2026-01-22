@@ -9,7 +9,7 @@ aligned with **FAANG-style expectations for Machine Learning Engineers**
 
 ------------------------------------------------------------------------
 
-## What does this repository demonstrate
+## What does this repository demonstrates
 
 -   End-to-end ownership of ML systems (not just model building)
 -   Strong fundamentals in math, statistics, and optimization
@@ -38,7 +38,7 @@ aligned with **FAANG-style expectations for Machine Learning Engineers**
 -   `case-studies/` -- End-to-end ML scenarios with business context
 -   `src/` -- Reusable feature, training, and inference pipelines
 -   `configs/` -- Experiment configurations (YAML)
--   `notebooks/` -- EDA, prototyping, and visualization
+-   `notebooks/` -- Exploratory Data Analysis(EDA), prototyping, and visualization
 -   `tests/` -- Validation, unit tests, and data checks
 -   `models/` -- Trained artifacts and model cards
 -   `monitoring/` -- Drift detection and performance dashboards
@@ -64,6 +64,31 @@ Each topic below links directly to its detailed documentation in
 -   [Model Evaluation Deep Dive](docs/model-evaluation.md)
 -   [Bias & Fairness Tracking](docs/bias-fairness-tracking.md)
 -   [ML Pipeline Best Practices](docs/best-practices.md)
+
+------------------------------------------------------------------------
+
+# Featured Highlights
+
+-   [Repo 1 Name](docs/definitions.md)
+-   [Repo 2 Name](docs/mathematics-definitions.md)
+-   [Repo 3 Name](docs/feature-engineering.md)
+-   [Repo 4 Name](docs/data-leakage.md)
+-   [Repo 5 Name](docs/clustered-models-examples.md)
+-   [Repo 6 Name](docs/non-clustered-models-examples.md)
+-   [Repo 7 Name](docs/feature-stores.md)
+-   [Repo 8 Name](docs/mlops.md)
+-   [Repo 9 Name](docs/model-deployment-strategies.md)
+-   [Repo 10 Name](docs/model-evaluation.md)
+
+------------------------------------------------------------------------
+
+# Featured Model Results
+
+Result 1 (images)
+Result 2 (images)
+Result 3 (images)
+Result 4 (images)
+Result 5 (images)
 
 ------------------------------------------------------------------------
 
