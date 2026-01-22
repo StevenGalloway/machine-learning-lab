@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "generated": "2026-01-22",
+    "random_state": 42,
+    "test_size": 0.2,
+    "positive_class": "malignant",
+    "dataset": "sklearn.datasets.load_breast_cancer"
+  },
+  "logistic_regression": {
+    "tn": 71,
+    "fp": 1,
+    "fn": 3,
+    "tp": 39,
+    "accuracy": 0.9649122807017544,
+    "roc_auc": 0.996031746031746,
+    "sensitivity_recall": 0.9285714285714286,
+    "specificity": 0.9861111111111112,
+    "precision_ppv": 0.975,
+    "npv": 0.9594594594594594,
+    "f1": 0.9512195121951219,
+    "brier": 0.021313139001192277,
+    "support_test": 114,
+    "positive_rate_test": 0.3684210526315789
+  },
+  "boosted_trees_default_threshold": {
+    "tn": 72,
+    "fp": 0,
+    "fn": 4,
+    "tp": 38,
+    "accuracy": 0.9649122807017544,
+    "roc_auc": 0.9937169312169313,
+    "sensitivity_recall": 0.9047619047619048,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "npv": 0.9473684210526315,
+    "f1": 0.95,
+    "brier": 0.022774901714018466,
+    "support_test": 114,
+    "positive_rate_test": 0.3684210526315789
+  },
+  "boosted_trees_high_sensitivity_threshold": {
+    "tn": 72,
+    "fp": 0,
+    "fn": 1,
+    "tp": 41,
+    "accuracy": 0.9912280701754386,
+    "roc_auc": 0.9937169312169313,
+    "sensitivity_recall": 0.9761904761904762,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "npv": 0.9863013698630136,
+    "f1": 0.9879518072289156,
+    "brier": 0.022774901714018466,
+    "support_test": 114,
+    "positive_rate_test": 0.3684210526315789,
+    "threshold": 0.1927942931652069,
+    "fpr_at_threshold": 0.0,
+    "tpr_at_threshold": 0.9761904761904762
+  },
+  "top_feature_importances": [
+    {
+      "feature": "worst perimeter",
+      "importance": 0.3203275799751282
+    },
+    {
+      "feature": "worst radius",
+      "importance": 0.17785878479480743
+    },
+    {
+      "feature": "worst concave points",
+      "importance": 0.12066390365362167
+    },
+    {
+      "feature": "mean concave points",
+      "importance": 0.11173409223556519
+    },
+    {
+      "feature": "concavity error",
+      "importance": 0.02360166423022747
+    },
+    {
+      "feature": "mean concavity",
+      "importance": 0.021786028519272804
+    },
+    {
+      "feature": "worst concavity",
+      "importance": 0.021245969459414482
+    },
+    {
+      "feature": "worst area",
+      "importance": 0.01963692344725132
+    },
+    {
+      "feature": "mean texture",
+      "importance": 0.017163408920168877
+    },
+    {
+      "feature": "mean area",
+      "importance": 0.01713632605969906
+    }
+  ]
+}
