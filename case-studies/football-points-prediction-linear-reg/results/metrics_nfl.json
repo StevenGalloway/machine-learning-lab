@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "random_state": 42,
+    "test_size": 0.2,
+    "task_type": "regression",
+    "dataset": "nfl",
+    "features": [
+      "FirstDowns"
+    ],
+    "target": "Points"
+  },
+  "baseline": {
+    "mse": 112.046280680625,
+    "rmse": 10.585191575055456,
+    "mae": 8.5176,
+    "r2": -0.0001408691451010302,
+    "smape": 0.3168933703612584,
+    "n_test": 200
+  },
+  "linear_regression": {
+    "mse": 55.74301906783889,
+    "rmse": 7.466124769104712,
+    "mae": 6.0230424520515715,
+    "r2": 0.5024299673258075,
+    "smape": 0.23463644328398345,
+    "n_test": 200
+  },
+  "coefficients": {
+    "intercept": 2.6228481095136793,
+    "coef_firstdowns": 1.3034523713280757
+  }
+}

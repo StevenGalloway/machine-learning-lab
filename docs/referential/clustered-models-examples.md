@@ -109,7 +109,7 @@ regression behavior).
 
 **Use cases** - Trend-based grouping - Behavioral segmentation
 
-Example: (Insert Example Repo when completed)
+Example: [Football Points Prediction (NFL)](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
 
 ------------------------------------------------------------------------
 

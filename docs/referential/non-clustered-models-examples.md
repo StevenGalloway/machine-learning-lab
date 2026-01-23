@@ -8,7 +8,7 @@ Used for predicting continuous outcomes.
 
 **Cons** - Assumes linear relationships
 
-Example: (Insert Example Repo when completed)
+Example: [Football Points Prediction](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
 
 ------------------------------------------------------------------------
 
