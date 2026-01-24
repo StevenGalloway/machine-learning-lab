@@ -72,6 +72,7 @@ Each topic below links directly to its detailed documentation in
 -   [Breast Cancer XGBoost](case-studies/breast-cancer-xgb/README.md)
 -   [Loan Approval XGBoost](case-studies/loan-approval-xgb/README.md)
 -   [Football Points Prediction Linear Regression](case-studies/football-points-prediction-linear-reg/README.md)
+-   [Basketball Points Prediction Linear Regression](case-studies/basketball-points-prediction-linear-reg/README.md)
 
 ------------------------------------------------------------------------
 
@@ -80,6 +81,7 @@ Each topic below links directly to its detailed documentation in
 -   [Breast Cancer XGBoost - Results](case-studies\breast-cancer-xgb\results\baseline_results.md)
 -   [Loan Approval XGBoost - Results](case-studies\loan-approval-xgb\results\baseline_results.md)
 -   [Football Points Prediction (NFL) - Results](case-studies\football-points-prediction-linear-reg\results\baseline_results_nfl.md)
+-   [Basketball Points Prediction - Results](case-studies\basketball-points-prediction-linear-reg\results\baseline_results_nfl.md)
 
 ------------------------------------------------------------------------
 
@@ -105,6 +107,7 @@ repository.
     *Example:* [Loan Approval](case-studies\breast-cancer-xgb\scripts\train_eval.py)
 -   **Pandas** --- data manipulation, feature engineering, and analysis\
     *Example:* [Football Points Prediction](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
+    *Example:* [Basketball Points Prediction](case-studies\basketball-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
 
 ------------------------------------------------------------------------
 

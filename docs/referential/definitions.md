@@ -13,6 +13,7 @@ Trees, Gradient Boosting
 Example repo: [Breast Cancer Identification (XGBoost)](case-studies\breast-cancer-xgb\scripts\train_eval.py)
 Example repo: [Loan Approval (XGBoost)](case-studies\loan-approval-xgb\scripts\train_eval.py)
 Example repo: [Football Points Prediction (Linear Regression)](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
+Example repo: [Basketball Points Prediction (Linear Regression)](case-studies\basketball-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
 
 **Pros** - High predictive accuracy when labels are reliable - Easier
 evaluation (clear ground truth)
