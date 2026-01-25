@@ -73,15 +73,17 @@ Each topic below links directly to its detailed documentation in
 -   [Loan Approval XGBoost](case-studies/loan-approval-xgb/README.md)
 -   [Football Points Prediction Linear Regression](case-studies/football-points-prediction-linear-reg/README.md)
 -   [Basketball Points Prediction Linear Regression](case-studies/basketball-points-prediction-linear-reg/README.md)
+-   [Text Send Identification Naives Bayes](case-studies/text-sender-identification-nb/README.md)
 
 ------------------------------------------------------------------------
 
 # Featured Model Results
 
--   [Breast Cancer XGBoost - Results](case-studies\breast-cancer-xgb\results\baseline_results.md)
--   [Loan Approval XGBoost - Results](case-studies\loan-approval-xgb\results\baseline_results.md)
--   [Football Points Prediction (NFL) - Results](case-studies\football-points-prediction-linear-reg\results\baseline_results_nfl.md)
--   [Basketball Points Prediction - Results](case-studies\basketball-points-prediction-linear-reg\results\baseline_results_nfl.md)
+-   [Breast Cancer XGBoost - Results](case-studies/breast-cancer-xgb/results/baseline_results.md)
+-   [Loan Approval XGBoost - Results](case-studies/loan-approval-xgb/results/baseline_results.md)
+-   [Football Points Prediction (NFL) - Results](case-studies/football-points-prediction-linear-reg/results/baseline_results_nfl.md)
+-   [Basketball Points Prediction - Results](case-studies/basketball-points-prediction-linear-reg/results/baseline_results_nfl.md)
+-   [Text Send Identification NB - Results](case-studies/text-sender-identification-nb/results/baseline_results.md)
 
 ------------------------------------------------------------------------
 
@@ -101,22 +103,22 @@ repository.
 
 ## Core Programming & ML Foundations
 
--   **Python** --- primary language for data, modeling, and pipelines\
-    *Example:* [Breast Cancer Identification](case-studies\breast-cancer-xgb\scripts\train_eval.py)
+-   **Python** --- primary language for data, modeling, and pipelines/
+    *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)
 -   **NumPy** --- numerical computing, linear algebra, and optimization\
-    *Example:* [Loan Approval](case-studies\breast-cancer-xgb\scripts\train_eval.py)
+    *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
 -   **Pandas** --- data manipulation, feature engineering, and analysis\
-    *Example:* [Football Points Prediction](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
-    *Example:* [Basketball Points Prediction](case-studies\basketball-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
+    *Example:* [Football Points Prediction](case-studies/football-points-prediction-linear-reg/scripts/points-prediction-linear-reg.py)\
+    *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
 
 ------------------------------------------------------------------------
 
 ## Modeling & Algorithms
 
 -   **scikit-learn** --- baseline models, pipelines, evaluation, and CV\
-    *Example:* [Breast Cancer Identification](case-studies\breast-cancer-xgb\scripts\train_eval.py)
+    *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)
 -   **XGBoost / LightGBM** --- high-performance tabular modeling\
-    *Example:* [Loan Approval](case-studies\breast-cancer-xgb\scripts\train_eval.py)
+    *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
 -   **PyTorch** --- representation learning and deep models (when
     appropriate)\
     *Example:* (Insert Example Repo when completed)
@@ -127,7 +129,7 @@ repository.
 
 -   **scikit-learn Pipelines** --- reproducible preprocessing +
     training\
-    *Example:* (Insert Example Repo when completed)
+    *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
 -   **Feature Selection (Filter/Wrapper/Embedded)** --- dimensionality
     control\
     *Example:* (Insert Example Repo when completed)

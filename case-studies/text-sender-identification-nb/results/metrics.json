@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "random_state": 42,
+    "test_size": 0.2,
+    "task_type": "classification",
+    "model_family": "Multinomial Naive Bayes",
+    "dataset_path": "case-studies/text-sender-identification-nb/data/sms_sender_dataset_1000.csv",
+    "features": [
+      "text",
+      "time_of_day"
+    ],
+    "target": "label",
+    "labels": [
+      "Boss",
+      "Friend",
+      "Mom",
+      "girlfriend"
+    ],
+    "split_strategy": "stratified_random"
+  },
+  "baseline": {
+    "accuracy": 0.29,
+    "macro_f1": 0.1124031007751938,
+    "n_test": 200,
+    "strategy": "majority_class",
+    "majority_class": "Friend"
+  },
+  "naive_bayes": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_test": 200,
+    "alpha": 1.0,
+    "per_class": {
+      "Boss": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 47.0
+      },
+      "Friend": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 58.0
+      },
+      "Mom": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 51.0
+      },
+      "girlfriend": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 44.0
+      }
+    }
+  }
+}

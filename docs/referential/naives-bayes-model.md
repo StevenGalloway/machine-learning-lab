@@ -143,7 +143,7 @@ Used for **count-based features**.
 - Bag-of-words models
 - TF-IDF vectors
 
-Example repo: (Insert Example Repo when completed)
+*Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
 
 ------------------------------------------------------------------------
 
@@ -201,7 +201,7 @@ Example: (Insert Example Repo when completed)
 - Topic classification
 - News categorization
 
-Example: (Insert Example Repo when completed)
+*Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
 
 ### Document Tagging
 - Legal documents
