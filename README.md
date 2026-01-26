@@ -89,7 +89,7 @@ Each topic below links directly to its detailed documentation in
 -   [Breast Cancer XGBoost - Results](case-studies/breast-cancer-xgb/results/baseline_results.md)
 -   [Loan Approval XGBoost - Results](case-studies/loan-approval-xgb/results/baseline_results.md)
 -   [Football Points Prediction (NFL) - Results](case-studies/football-points-prediction-linear-reg/results/baseline_results_nfl.md)
--   [Basketball Points Prediction - Results](case-studies/basketball-points-prediction-linear-reg/results/baseline_results_nfl.md)
+-   [Basketball Points Prediction - Results](case-studies/basketball-points-prediction-linear-reg/results/baseline_results.md)
 -   [Text Send Identification NB - Results](case-studies/text-sender-identification-nb/results/baseline_results.md)
 
 ------------------------------------------------------------------------
