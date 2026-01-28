@@ -115,10 +115,10 @@ repository.
 ## Core Programming & ML Foundations
 
 -   **Python** --- primary language for data, modeling, and pipelines\
-    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
+    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)\
     *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)
 -   **NumPy** --- numerical computing, linear algebra, and optimization\
-    *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
+    *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)\
     *Example:* [NFL Passing Yards](notebooks/jupyter/nfl-passing-yards-prediction/nfl-passing-yards-prediction_linear_reg.ipynb)
 -   **Pandas** --- data manipulation, feature engineering, and analysis\
     *Example:* [Football Points Prediction](case-studies/football-points-prediction-linear-reg/scripts/points-prediction-linear-reg.py)\
@@ -129,7 +129,7 @@ repository.
 ## Modeling & Algorithms
 
 -   **scikit-learn** --- baseline models, pipelines, evaluation, and CV\
-    *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)
+    *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)\
     *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
 -   **XGBoost / LightGBM** --- high-performance tabular modeling\
     *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
@@ -144,7 +144,7 @@ repository.
 
 -   **scikit-learn Pipelines** --- reproducible preprocessing +
     training\
-    *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
+    *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)\
     *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)
 -   **Feature Selection (Filter/Wrapper/Embedded)** --- dimensionality
     control\
@@ -161,7 +161,7 @@ repository.
 -   **MLflow (or W&B)** --- experiment tracking and artifact logging\
     *Example:* (Insert Example Repo when completed)
 -   **scikit-learn Metrics** --- precision/recall, ROC-AUC, calibration\
-    *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)
+    *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)\
     *Example:* [Text Sender Identification](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb_LIVE.py)
 -   **Slice-Based Evaluation** --- performance by segment (fairness +
     reliability)\
