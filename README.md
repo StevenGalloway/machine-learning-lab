@@ -74,18 +74,22 @@ Each topic below links directly to its detailed documentation in
 
 # Featured Highlights
 
--   [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/README.md)
--   [Breast Cancer XGBoost Model](case-studies/breast-cancer-xgb/README.md)
--   [Loan Approval XGBoost Model](case-studies/loan-approval-xgb/README.md)
--   [Football Points Prediction Linear Regression Model](case-studies/football-points-prediction-linear-reg/README.md)
--   [Basketball Points Prediction Linear Regression Model](case-studies/basketball-points-prediction-linear-reg/README.md)
--   [Text Send Identification Naives Bayes](case-studies/text-sender-identification-nb/README.md)
+-   [NFL Passing Yards Prediction Linear Regression (Jupyter)](notebooks/jupyter/nfl-passing-yards-prediction/README.md)
+-   [Football Points Prediction Linear Regression Model (Python)](case-studies/football-points-prediction-linear-reg/README.md)
+-   [Basketball Points Prediction Linear Regression Model (Python)](case-studies/basketball-points-prediction-linear-reg/README.md)
+-   [Ravens & Steelers Game Prediction (NFL) Random Forest Model (Python)](case-studies/nfl-game-prediction/README.md)
+-   [Loan Default Prediction Random Forest Model (Python)](case-studies/loan-default-prediction-rf/README.md)
+-   [NBA Points Prediction Random Forest (Jupyter)](notebooks/jupyter/nba-points-prediction/README.md)
+-   [Breast Cancer XGBoost Model (Python)](case-studies/breast-cancer-xgb/README.md)
+-   [Loan Approval XGBoost Model (Python)](case-studies/loan-approval-xgb/README.md)
+-   [Text Send Identification Naives Bayes (Python)](case-studies/text-sender-identification-nb/README.md)
 
 ------------------------------------------------------------------------
 
 # Featured Model Results
 
 -   [Ravens & Steelers Game Prediction (NFL) - Results](case-studies/nfl-game-prediction/results/baseline_results.md)
+-   [Loan Default Prediction - Results)](case-studies/loan-default-prediction-rf/README.md)
 -   [Breast Cancer XGBoost - Results](case-studies/breast-cancer-xgb/results/baseline_results.md)
 -   [Loan Approval XGBoost - Results](case-studies/loan-approval-xgb/results/baseline_results.md)
 -   [Football Points Prediction (NFL) - Results](case-studies/football-points-prediction-linear-reg/results/baseline_results_nfl.md)
@@ -115,6 +119,7 @@ repository.
     *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)
 -   **NumPy** --- numerical computing, linear algebra, and optimization\
     *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
+    *Example:* [NFL Passing Yards](notebooks/jupyter/nfl-passing-yards-prediction/nfl-passing-yards-prediction_linear_reg.ipynb)
 -   **Pandas** --- data manipulation, feature engineering, and analysis\
     *Example:* [Football Points Prediction](case-studies/football-points-prediction-linear-reg/scripts/points-prediction-linear-reg.py)\
     *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
@@ -128,6 +133,7 @@ repository.
     *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
 -   **XGBoost / LightGBM** --- high-performance tabular modeling\
     *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
+-   *Example:* [Breast Cancer XGBoost Model (Python)](case-studies/breast-cancer-xgb/README.md)
 -   **PyTorch** --- representation learning and deep models (when
     appropriate)\
     *Example:* (Insert Example Repo when completed)
@@ -139,13 +145,13 @@ repository.
 -   **scikit-learn Pipelines** --- reproducible preprocessing +
     training\
     *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
+    *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)
 -   **Feature Selection (Filter/Wrapper/Embedded)** --- dimensionality
     control\
     *Example:* (Insert Example Repo when completed)
 -   **Missing Value Imputation** --- robust handling of incomplete data\
     *Example:* (Insert Example Repo when completed)
--   **Data Validation (Great Expectations)** --- data quality gates
-    (optional)\
+-   **Data Validation (Great Expectations)** --- data quality gates\
     *Example:* (Insert Example Repo when completed)
 
 ------------------------------------------------------------------------
@@ -155,7 +161,8 @@ repository.
 -   **MLflow (or W&B)** --- experiment tracking and artifact logging\
     *Example:* (Insert Example Repo when completed)
 -   **scikit-learn Metrics** --- precision/recall, ROC-AUC, calibration\
-    *Example:* (Insert Example Repo when completed)
+    *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)
+    *Example:* [Text Sender Identification](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb_LIVE.py)
 -   **Slice-Based Evaluation** --- performance by segment (fairness +
     reliability)\
     *Example:* (Insert Example Repo when completed)

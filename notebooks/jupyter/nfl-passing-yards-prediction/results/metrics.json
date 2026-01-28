@@ -1,0 +1,13 @@
+{
+  "rmse": 28.959127373214244,
+  "mae": 23.051883912694663,
+  "r2": 0.8858163234538905,
+  "features": [
+    "Pass_Attempts",
+    "Completions",
+    "Completion_Pct",
+    "Defense_Rank",
+    "Pace",
+    "Wind_MPH"
+  ]
+}

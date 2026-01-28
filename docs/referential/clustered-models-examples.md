@@ -109,8 +109,9 @@ regression behavior).
 
 **Use cases** - Trend-based grouping - Behavioral segmentation
 
-Example: [Football Points Prediction](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
-Example: [Basketball Points Prediction](case-studies\basketball-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
+Example: [Football Points Prediction](case-studies/football-points-prediction-linear-reg/scripts/points-prediction-linear-reg.py)\
+Example: [Basketball Points Prediction](case-studies/basketball-points-prediction-linear-reg/scripts/points-prediction-linear-reg.py)\
+Example: [NFL Passing Yards Prediction](notebooks/jupyter/nfl-passing-yards-prediction/nfl-passing-yards-prediction-linear-reg.ipynb)
 
 ------------------------------------------------------------------------
 

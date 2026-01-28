@@ -18,7 +18,7 @@ improperly used to create the model.
 -   Time-based splits for temporal data
 -   Strict feature governance
 
-Example: (Insert Example Repo when completed)
+Example: [Football Points Prediction](notebooks\jupyter\nfl-passing-yards-prediction\nfl-passing-yards-prediction_linear_reg.ipynb)
 
 ------------------------------------------------------------------------
 
