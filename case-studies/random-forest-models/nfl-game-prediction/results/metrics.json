@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "task_type": "classification",
+    "use_case": "nfl_home_win_prediction",
+    "primary_metric": "roc_auc",
+    "data_path": "/mnt/data/ml-lab_repo/case-studies/nfl-game-prediction/data/spreadspoke_scores_sample.csv",
+    "dataset_sha256": "e4d108fae14776876eaa9b9e17991c9576ac0c523a35156a8ee3f0941475d38c",
+    "split_strategy": "season_aware_holdout",
+    "test_rows": 260
+  },
+  "baseline": {
+    "accuracy": 0.8384615384615385,
+    "roc_auc": 0.929666686401042,
+    "brier": 0.10846260927505252,
+    "log_loss": 0.33690077270707486,
+    "precision": 0.8226950354609929,
+    "recall": 0.8721804511278195,
+    "f1": 0.8467153284671532,
+    "classification_report": "              precision    recall  f1-score   support\n\n           0       0.86      0.80      0.83       127\n           1       0.82      0.87      0.85       133\n\n    accuracy                           0.84       260\n   macro avg       0.84      0.84      0.84       260\nweighted avg       0.84      0.84      0.84       260\n"
+  },
+  "random_forest": {
+    "accuracy": 0.8576923076923076,
+    "roc_auc": 0.9295778817121544,
+    "brier": 0.10468291754448418,
+    "log_loss": 0.3361243459180021,
+    "precision": 0.8529411764705882,
+    "recall": 0.8721804511278195,
+    "f1": 0.862453531598513,
+    "classification_report": "              precision    recall  f1-score   support\n\n           0       0.86      0.84      0.85       127\n           1       0.85      0.87      0.86       133\n\n    accuracy                           0.86       260\n   macro avg       0.86      0.86      0.86       260\nweighted avg       0.86      0.86      0.86       260\n",
+    "hyperparameters": {
+      "n_estimators": 500,
+      "max_depth": null,
+      "min_samples_leaf": 2,
+      "min_samples_split": 4,
+      "class_weight": "balanced",
+      "calibration": {
+        "method": "isotonic",
+        "cv": 3
+      }
+    }
+  },
+  "artifacts": {
+    "roc_curve_png": "results/roc_curve.png",
+    "confusion_matrix_png": "results/confusion_matrix.png",
+    "feature_importance_png": "results/feature_importance_top20.png",
+    "baseline_results_md": "results/baseline_results.md",
+    "success_metrics_md": "results/success_metrics.md"
+  },
+  "prediction_example": {
+    "query": {
+      "season": 2025,
+      "week": 3,
+      "home_team": "Baltimore Ravens",
+      "away_team": "Pittsburgh Steelers"
+    },
+    "p_home_win": 0.021367521367521364,
+    "predicted_label": 0
+  }
+}

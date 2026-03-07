@@ -75,26 +75,26 @@ Each topic below links directly to its detailed documentation in
 # Featured Highlights
 
 -   [NFL Passing Yards Prediction Linear Regression (Jupyter)](notebooks/jupyter/nfl-passing-yards-prediction/README.md)
--   [Football Points Prediction Linear Regression Model (Python)](case-studies/football-points-prediction-linear-reg/README.md)
--   [Basketball Points Prediction Linear Regression Model (Python)](case-studies/basketball-points-prediction-linear-reg/README.md)
--   [Ravens & Steelers Game Prediction (NFL) Random Forest Model (Python)](case-studies/nfl-game-prediction/README.md)
--   [Loan Default Prediction Random Forest Model (Python)](case-studies/loan-default-prediction-rf/README.md)
+-   [Football Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/football-points-prediction/README.md)
+-   [Basketball Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/basketball-points-prediction/README.md)
+-   [Ravens & Steelers Game Prediction (NFL) Random Forest Model (Python)](case-studies/random-forest-models/nfl-game-prediction/README.md)
+-   [Loan Default Prediction Random Forest Model (Python)](case-studies/random-forest-models/loan-default-prediction/README.md)
 -   [NBA Points Prediction Random Forest (Jupyter)](notebooks/jupyter/nba-points-prediction/README.md)
--   [Breast Cancer XGBoost Model (Python)](case-studies/breast-cancer-xgb/README.md)
--   [Loan Approval XGBoost Model (Python)](case-studies/loan-approval-xgb/README.md)
--   [Text Send Identification Naives Bayes (Python)](case-studies/text-sender-identification-nb/README.md)
+-   [Breast Cancer XGBoost Model (Python)](case-studies/xgb-models/breast-cancer/README.md)
+-   [Loan Approval XGBoost Model (Python)](case-studies/xgb-models/loan-approval/README.md)
+-   [Text Send Identification Naives Bayes (Python)](case-studies/naives-bayes-models/text-sender-identification-nb/README.md)
 
 ------------------------------------------------------------------------
 
 # Featured Model Results
 
--   [Ravens & Steelers Game Prediction (NFL) - Results](case-studies/nfl-game-prediction/results/baseline_results.md)
--   [Loan Default Prediction - Results)](case-studies/loan-default-prediction-rf/README.md)
--   [Breast Cancer XGBoost - Results](case-studies/breast-cancer-xgb/results/baseline_results.md)
--   [Loan Approval XGBoost - Results](case-studies/loan-approval-xgb/results/baseline_results.md)
--   [Football Points Prediction (NFL) - Results](case-studies/football-points-prediction-linear-reg/results/baseline_results_nfl.md)
--   [Basketball Points Prediction - Results](case-studies/basketball-points-prediction-linear-reg/results/baseline_results.md)
--   [Text Send Identification NB - Results](case-studies/text-sender-identification-nb/results/baseline_results.md)
+-   [Ravens & Steelers Game Prediction (NFL) - Results](case-studies/random-forest-models/nfl-game-prediction/results/baseline_results.md)
+-   [Loan Default Prediction - Results)](case-studies/random-forest-models/loan-default-prediction/README.md)
+-   [Breast Cancer XGBoost - Results](case-studies/xgb-models/breast-cancer/results/baseline_results.md)
+-   [Loan Approval XGBoost - Results](case-studies/xgb-models/loan-approval/results/baseline_results.md)
+-   [Football Points Prediction (NFL) - Results](case-studies/linear-regression-models/football-points-prediction/results/baseline_results_nfl.md)
+-   [Basketball Points Prediction - Results](case-studies/linear-regression-models/basketball-points-prediction/results/baseline_results.md)
+-   [Text Send Identification NB - Results](case-studies/naives-bayes-models/text-sender-identification/results/baseline_results.md)
 
 ------------------------------------------------------------------------
 
@@ -115,25 +115,25 @@ repository.
 ## Core Programming & ML Foundations
 
 -   **Python** --- primary language for data, modeling, and pipelines\
-    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)\
-    *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)
+    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/random-forest-models/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)\
+    *Example:* [Breast Cancer Identification](case-studies/xgb-models/breast-cancer/scripts/train_eval.py)
 -   **NumPy** --- numerical computing, linear algebra, and optimization\
-    *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)\
+    *Example:* [Loan Approval](case-studies/xgb-models/breast-cancer/scripts/train_eval.py)\
     *Example:* [NFL Passing Yards](notebooks/jupyter/nfl-passing-yards-prediction/nfl-passing-yards-prediction_linear_reg.ipynb)
 -   **Pandas** --- data manipulation, feature engineering, and analysis\
-    *Example:* [Football Points Prediction](case-studies/football-points-prediction-linear-reg/scripts/points-prediction-linear-reg.py)\
-    *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)
+    *Example:* [Football Points Prediction](case-studies/linear-regression-models/football-points-prediction/scripts/points-prediction-linear-reg.py)\
+    *Example:* [Text Sender Prediction](case-studies/naives-bayes-models/text-sender-identification/scripts/text_sender_identification_nb.py)
 
 ------------------------------------------------------------------------
 
 ## Modeling & Algorithms
 
 -   **scikit-learn** --- baseline models, pipelines, evaluation, and CV\
-    *Example:* [Breast Cancer Identification](case-studies/breast-cancer-xgb/scripts/train_eval.py)\
-    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
+    *Example:* [Breast Cancer Identification](case-studies/xgb-models/breast-cancer/scripts/train_eval.py)\
+    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/xgb-models/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
 -   **XGBoost / LightGBM** --- high-performance tabular modeling\
-    *Example:* [Loan Approval](case-studies/breast-cancer-xgb/scripts/train_eval.py)
--   *Example:* [Breast Cancer XGBoost Model (Python)](case-studies/breast-cancer-xgb/README.md)
+    *Example:* [Loan Approval](case-studies/xgb-models/breast-cancer/scripts/train_eval.py)
+-   *Example:* [Breast Cancer XGBoost Model (Python)](case-studies/xgb-models/breast-cancer/README.md)
 -   **PyTorch** --- representation learning and deep models (when
     appropriate)\
     *Example:* (Insert Example Repo when completed)
@@ -144,7 +144,7 @@ repository.
 
 -   **scikit-learn Pipelines** --- reproducible preprocessing +
     training\
-    *Example:* [Text Sender Prediction](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb.py)\
+    *Example:* [Text Sender Prediction](case-studies/naives-bayes-models/text-sender-identification/scripts/text_sender_identification_nb.py)\
     *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)
 -   **Feature Selection (Filter/Wrapper/Embedded)** --- dimensionality
     control\
@@ -162,7 +162,7 @@ repository.
     *Example:* (Insert Example Repo when completed)
 -   **scikit-learn Metrics** --- precision/recall, ROC-AUC, calibration\
     *Example:* [NBA Points Scoring](notebooks/jupyter/nba-points-prediction/nba-points-prediction_rf.ipynb)\
-    *Example:* [Text Sender Identification](case-studies/text-sender-identification-nb/scripts/text_sender_identification_nb_LIVE.py)
+    *Example:* [Text Sender Identification](case-studies/naives-bayes-models/text-sender-identification/scripts/text_sender_identification_nb_LIVE.py)
 -   **Slice-Based Evaluation** --- performance by segment (fairness +
     reliability)\
     *Example:* (Insert Example Repo when completed)

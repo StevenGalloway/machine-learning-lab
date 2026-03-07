@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "generated": "2026-01-23",
+    "random_state": 42,
+    "test_size": 0.2,
+    "task_type": "regression",
+    "dataset": "cfb",
+    "n_rows": 1000,
+    "features": [
+      "FirstDowns"
+    ],
+    "target": "Points"
+  },
+  "baseline": {
+    "mse": 208.97232515999997,
+    "rmse": 14.455875108757683,
+    "mae": 11.097615999999999,
+    "r2": -0.01661205697897561,
+    "mape": 397256000.513483,
+    "n_test": 200
+  },
+  "linear_regression": {
+    "mse": 130.0960220289568,
+    "rmse": 11.405964318239683,
+    "mae": 8.718752234794033,
+    "r2": 0.3671066996149992,
+    "mape": 349272818.9575479,
+    "n_test": 200,
+    "smape": 0.23624890496918488
+  },
+  "coefficients": {
+    "intercept": 5.999968286459428,
+    "coef_firstdowns": 1.4463656787194417
+  },
+  "data_summary": {
+    "firstdowns_min": 9,
+    "firstdowns_max": 39,
+    "points_min": 0.0,
+    "points_max": 80.0,
+    "points_mean": 40.095180000000006,
+    "points_std": 13.684764980084978
+  }
+}
