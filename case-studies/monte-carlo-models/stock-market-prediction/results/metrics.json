@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-03-07T21:44:46.221295+00:00",
+    "task_type": "stochastic_simulation",
+    "model_family": "monte_carlo_geometric_brownian_motion",
+    "data_source": "cache",
+    "case_study_dir": "C:/Users/Owner/Desktop/GitHub Projects/ML and DS Highlights/machine-learning-lab/case-studies/monte-carlo-models/stock-market-prediction"
+  },
+  "config": {
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "GOOGL"
+    ],
+    "lookback_period": "3y",
+    "forecast_days": 252,
+    "num_paths": 5000,
+    "seed": 123,
+    "cache_ttl_hours": 24,
+    "refresh_cache": false,
+    "risk_free_rate": 0.0
+  },
+  "inputs": {
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "GOOGL"
+    ],
+    "lookback_period": "3y",
+    "observation_count": 753,
+    "start_date": "2023-03-07",
+    "end_date": "2026-03-06",
+    "latest_prices": {
+      "AAPL": 257.4599914550781,
+      "MSFT": 408.9599914550781,
+      "NVDA": 177.82000732421875,
+      "AMZN": 213.2100067138672,
+      "GOOGL": 298.5199890136719
+    },
+    "portfolio_weights": {
+      "AAPL": 0.2,
+      "MSFT": 0.2,
+      "NVDA": 0.2,
+      "AMZN": 0.2,
+      "GOOGL": 0.2
+    }
+  },
+  "simulation_summary": {
+    "starting_portfolio_value": 271.1939971923828,
+    "terminal_value_mean": 375.6814543926975,
+    "terminal_value_std": 91.39967867374081,
+    "terminal_value_p05": 247.9674728102386,
+    "terminal_value_p50": 363.44834819648634,
+    "terminal_value_p95": 542.9170747655176,
+    "expected_return_pct": 38.52867625465623,
+    "probability_of_loss": 0.109,
+    "annualized_portfolio_volatility": 0.23910082254184375,
+    "historical_annualized_log_return_by_asset": {
+      "AAPL": 0.182298583079011,
+      "MSFT": 0.16725114927115314,
+      "NVDA": 0.6814938900131526,
+      "AMZN": 0.2760544527885084,
+      "GOOGL": 0.3902514669318464
+    }
+  },
+  "artifacts": {
+    "metrics_json": "results/metrics.json",
+    "summary_markdown": "results/summary.md",
+    "portfolio_paths_png": "results/portfolio_paths.png",
+    "terminal_distribution_png": "results/terminal_value_distribution.png"
+  }
+}
