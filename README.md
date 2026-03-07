@@ -82,7 +82,7 @@ Each topic below links directly to its detailed documentation in
 -   [NBA Points Prediction Random Forest (Jupyter)](notebooks/jupyter/nba-points-prediction/README.md)
 -   [Breast Cancer XGBoost Model (Python)](case-studies/xgb-models/breast-cancer/README.md)
 -   [Loan Approval XGBoost Model (Python)](case-studies/xgb-models/loan-approval/README.md)
--   [Text Send Identification Naives Bayes (Python)](case-studies/naives-bayes-models/text-sender-identification-nb/README.md)
+-   [Text Send Identification Naives Bayes (Python)](case-studies/naives-bayes-models/text-sender-identification/README.md)
 
 ------------------------------------------------------------------------
 
@@ -130,7 +130,7 @@ repository.
 
 -   **scikit-learn** --- baseline models, pipelines, evaluation, and CV\
     *Example:* [Breast Cancer Identification](case-studies/xgb-models/breast-cancer/scripts/train_eval.py)\
-    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/xgb-models/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
+    *Example:* [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/random-forest-models/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
 -   **XGBoost / LightGBM** --- high-performance tabular modeling\
     *Example:* [Loan Approval](case-studies/xgb-models/breast-cancer/scripts/train_eval.py)
 -   *Example:* [Breast Cancer XGBoost Model (Python)](case-studies/xgb-models/breast-cancer/README.md)
