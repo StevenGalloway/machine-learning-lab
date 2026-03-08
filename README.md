@@ -74,6 +74,7 @@ Each topic below links directly to its detailed documentation in
 
 # Featured Highlights
 
+-   [Superbowl Prediction 2026](case-studies\monte-carlo-models\superbowl-2026-prediction\README.md)
 -   [NFL Passing Yards Prediction Linear Regression (Jupyter)](notebooks/jupyter/nfl-passing-yards-prediction/README.md)
 -   [Football Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/football-points-prediction/README.md)
 -   [Basketball Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/basketball-points-prediction/README.md)
@@ -88,6 +89,7 @@ Each topic below links directly to its detailed documentation in
 
 # Featured Model Results
 
+-   [Superbowl 2026 - Results](case-studies/monte-carlo-models/superbowl-2026-prediction/results/prediction.json)
 -   [Ravens & Steelers Game Prediction (NFL) - Results](case-studies/random-forest-models/nfl-game-prediction/results/baseline_results.md)
 -   [Loan Default Prediction - Results)](case-studies/random-forest-models/loan-default-prediction/README.md)
 -   [Breast Cancer XGBoost - Results](case-studies/xgb-models/breast-cancer/results/baseline_results.md)
