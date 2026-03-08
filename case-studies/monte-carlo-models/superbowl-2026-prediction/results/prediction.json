@@ -1,0 +1,12 @@
+{
+  "team_a": "NE",
+  "team_b": "SEA",
+  "team_a_win_probability": 0.3998855835240275,
+  "team_b_win_probability": 0.6001144164759725,
+  "target_season": 2025,
+  "neutral_site": true,
+  "prediction_week": 20,
+  "generated_at_utc": "2026-03-08T02:13:27.354861+00:00",
+  "model_family": "HistGradientBoostingClassifier with isotonic calibration",
+  "notes": "This case study uses gradient boosting for classification. It does not use Geometric Brownian Motion."
+}
