@@ -147,6 +147,9 @@ flowchart LR
     C --> D[Weight Update]
 ```
 
+Example:
+-   [Handwriting Prediction Algorithm and App](case-studies/convolutional-models/handwriting-recognition/README.md)
+
 This allows the model to: - Reduce error - Adjust internal
 representations - Learn from mistakes
 
@@ -217,7 +220,7 @@ Basic Feedforward Network
 (Insert Example Repo when completed)
 
 Image Classifier (CNN)
-(Insert Example Repo when completed)
+-   [Handwriting Prediction Algorithm and App](case-studies/convolutional-models/handwriting-recognition/README.md)
 
 Transformer Model
 (Insert Example Repo when completed)
