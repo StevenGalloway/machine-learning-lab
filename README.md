@@ -74,6 +74,7 @@ Each topic below links directly to its detailed documentation in
 
 # Featured Highlights
 
+-   [Handwriting Prediction Algorithm and App](case-studies/convolutional-models/handwriting-recognition/README.md)
 -   [Superbowl Prediction 2026](case-studies\monte-carlo-models\superbowl-2026-prediction\README.md)
 -   [NFL Passing Yards Prediction Linear Regression (Jupyter)](notebooks/jupyter/nfl-passing-yards-prediction/README.md)
 -   [Football Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/football-points-prediction/README.md)
@@ -89,6 +90,7 @@ Each topic below links directly to its detailed documentation in
 
 # Featured Model Results
 
+-   [Handwriting Prediction Algorithm and App](case-studies/convolutional-models/handwriting-recognition/results/metrics.json)
 -   [Superbowl 2026 - Results](case-studies/monte-carlo-models/superbowl-2026-prediction/results/prediction.json)
 -   [Ravens & Steelers Game Prediction (NFL) - Results](case-studies/random-forest-models/nfl-game-prediction/results/baseline_results.md)
 -   [Loan Default Prediction - Results)](case-studies/random-forest-models/loan-default-prediction/README.md)
@@ -156,7 +158,7 @@ repository.
 -   **Data Validation (Great Expectations)** --- data quality gates\
     *Example:* (Insert Example Repo when completed)
 
-------------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 ## Experimentation & Model Evaluation
 
