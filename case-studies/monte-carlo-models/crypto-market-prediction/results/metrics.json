@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-03-09T05:01:15.411279+00:00",
+    "task_type": "stochastic_simulation",
+    "model_family": "monte_carlo_geometric_brownian_motion",
+    "data_source": "cache",
+    "case_study_dir": "C:/Users/Owner/Desktop/GitHub Projects/ML and DS Highlights/machine-learning-lab/case-studies/monte-carlo-models/crypto-market-prediction"
+  },
+  "config": {
+    "tickers": [
+      "BTC-USD",
+      "ETH-USD",
+      "SOL-USD",
+      "BNB-USD",
+      "XRP-USD"
+    ],
+    "weights": [
+      0.4,
+      0.25,
+      0.15,
+      0.1,
+      0.1
+    ],
+    "lookback_period": "2y",
+    "interval": "1d",
+    "forecast_days": 180,
+    "num_paths": 5000,
+    "seed": 123,
+    "cache_ttl_hours": 24,
+    "refresh_cache": false
+  },
+  "inputs": {
+    "tickers": [
+      "BTC-USD",
+      "ETH-USD",
+      "SOL-USD",
+      "BNB-USD",
+      "XRP-USD"
+    ],
+    "weights": {
+      "BTC-USD": 0.4,
+      "ETH-USD": 0.25,
+      "SOL-USD": 0.15,
+      "BNB-USD": 0.1,
+      "XRP-USD": 0.1
+    },
+    "lookback_period": "2y",
+    "interval": "1d",
+    "observation_count": 730,
+    "start_date": "2024-03-01",
+    "end_date": "2026-02-28",
+    "latest_prices": {
+      "BTC-USD": 20478.15002878645,
+      "ETH-USD": 1954.7803622825995,
+      "SOL-USD": 41.07776862074709,
+      "BNB-USD": 160.98654817903005,
+      "XRP-USD": 0.0459639485231194
+    }
+  },
+  "simulation_summary": {
+    "starting_portfolio_value": 1.0,
+    "terminal_value_mean": 0.7864878034469995,
+    "terminal_value_std": 0.35144039096158053,
+    "terminal_value_p10": 0.4198427648910205,
+    "terminal_value_p50": 0.7172570999604948,
+    "terminal_value_p90": 1.2323233390673793,
+    "expected_return_pct": -21.351219655300046,
+    "probability_of_loss": 0.7864,
+    "annualized_portfolio_volatility": 0.5873419287663904,
+    "historical_annualized_log_return_by_asset": {
+      "BTC-USD": -0.5546477512297928,
+      "ETH-USD": -0.2771284235548042,
+      "SOL-USD": -0.5367476092451133,
+      "BNB-USD": -0.45569610989502973,
+      "XRP-USD": -1.286298199207924
+    }
+  },
+  "artifacts": {
+    "metrics_json": "results/metrics.json",
+    "summary_markdown": "results/summary.md",
+    "portfolio_paths_png": "results/portfolio_paths.png",
+    "terminal_distribution_png": "results/terminal_value_distribution.png"
+  }
+}
