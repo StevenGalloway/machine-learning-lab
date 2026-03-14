@@ -1,0 +1,5 @@
+case-studies/convolutional-models/handwriting-recognition/data/emnist-letters-train.csv
+.gradio/certificate.pem
+case-studies/convolutional-models/handwriting-recognition/data/emnist-letters-test.csv
+case-studies/convolutional-models/handwriting-recognition/data/cache/emnist_letters_cache.npz
+case-studies/convolutional-models/handwriting-recognition/data/models/handwriting_cnn.keras
