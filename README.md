@@ -74,16 +74,13 @@ Each topic below links directly to its detailed documentation in
 
 # Featured Highlights
 
--   [Handwriting Prediction Algorithm and App](case-studies/convolutional-models/handwriting-recognition/README.md)
--   [Superbowl Prediction 2026](case-studies\monte-carlo-models\superbowl-2026-prediction\README.md)
+-   [Crypto Prediction Monte Carlo (Python)](case-studies/monte-carlo-models/crypto-market-prediction/README.md)
+-   [Handwriting Prediction Nueral Network and App (Python)](case-studies/convolutional-models/handwriting-recognition/README.md)
+-   [Superbowl Prediction 2026 Monte Carlo (Python)](case-studies\monte-carlo-models\superbowl-2026-prediction\README.md)
 -   [NFL Passing Yards Prediction Linear Regression (Jupyter)](notebooks/jupyter/nfl-passing-yards-prediction/README.md)
--   [Football Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/football-points-prediction/README.md)
--   [Basketball Points Prediction Linear Regression Model (Python)](case-studies/linear-regression-models/basketball-points-prediction/README.md)
--   [Ravens & Steelers Game Prediction (NFL) Random Forest Model (Python)](case-studies/random-forest-models/nfl-game-prediction/README.md)
 -   [Loan Default Prediction Random Forest Model (Python)](case-studies/random-forest-models/loan-default-prediction/README.md)
 -   [NBA Points Prediction Random Forest (Jupyter)](notebooks/jupyter/nba-points-prediction/README.md)
 -   [Breast Cancer XGBoost Model (Python)](case-studies/xgb-models/breast-cancer/README.md)
--   [Loan Approval XGBoost Model (Python)](case-studies/xgb-models/loan-approval/README.md)
 -   [Text Send Identification Naives Bayes (Python)](case-studies/naives-bayes-models/text-sender-identification/README.md)
 
 ------------------------------------------------------------------------
@@ -95,7 +92,6 @@ Each topic below links directly to its detailed documentation in
 -   [Ravens & Steelers Game Prediction (NFL) - Results](case-studies/random-forest-models/nfl-game-prediction/results/baseline_results.md)
 -   [Loan Default Prediction - Results)](case-studies/random-forest-models/loan-default-prediction/README.md)
 -   [Breast Cancer XGBoost - Results](case-studies/xgb-models/breast-cancer/results/baseline_results.md)
--   [Loan Approval XGBoost - Results](case-studies/xgb-models/loan-approval/results/baseline_results.md)
 -   [Football Points Prediction (NFL) - Results](case-studies/linear-regression-models/football-points-prediction/results/baseline_results_nfl.md)
 -   [Basketball Points Prediction - Results](case-studies/linear-regression-models/basketball-points-prediction/results/baseline_results.md)
 -   [Text Send Identification NB - Results](case-studies/naives-bayes-models/text-sender-identification/results/baseline_results.md)
