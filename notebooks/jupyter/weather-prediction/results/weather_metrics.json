@@ -1,0 +1,65 @@
+{
+  "start_state": "Sunny",
+  "num_steps": 30,
+  "seed": 42,
+  "history": [
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Rainy",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Sunny",
+    "Rainy",
+    "Sunny",
+    "Rainy",
+    "Rainy",
+    "Rainy",
+    "Sunny",
+    "Cloudy",
+    "Rainy",
+    "Sunny",
+    "Sunny",
+    "Rainy",
+    "Rainy"
+  ],
+  "state_counts": {
+    "Sunny": 22,
+    "Rainy": 8,
+    "Cloudy": 1
+  },
+  "stationary_distribution": {
+    "Sunny": 0.5454545454545455,
+    "Rainy": 0.27272727272727254,
+    "Cloudy": 0.18181818181818188
+  },
+  "transition_matrix": [
+    [
+      0.8,
+      0.1,
+      0.1
+    ],
+    [
+      0.2,
+      0.6,
+      0.2
+    ],
+    [
+      0.3,
+      0.3,
+      0.4
+    ]
+  ]
+}
