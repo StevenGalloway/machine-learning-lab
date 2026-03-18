@@ -46,4 +46,3 @@ python loan_approval_model.py
 - `results/metrics.json` – machine-readable metrics and slice metrics
 
 ---
-Generated: 2026-01-23
