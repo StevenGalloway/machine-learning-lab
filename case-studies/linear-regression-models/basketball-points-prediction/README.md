@@ -29,4 +29,3 @@ python points_prediction_linear_reg.py
 ```
 
 ---
-Generated: 2026-01-24
