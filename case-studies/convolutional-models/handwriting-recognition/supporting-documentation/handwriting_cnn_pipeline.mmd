@@ -1,0 +1,33 @@
+flowchart LR
+    A[emnist-letters-train.csv] --> C[preprocess_and_cache]
+    B[emnist-letters-test.csv] --> C
+
+    C --> D[Extract labels and pixel matrix]
+    D --> E[Reshape to 28x28 images]
+    E --> F[Transpose orientation]
+    F --> G[Normalize pixels]
+    G --> H[Add channel dimension]
+    H --> I[One-hot encode labels]
+    I --> J[Save cache<br/>emnist_letters_cache.npz]
+
+    J --> K[Train or load CNN]
+    K --> L[Conv2D 32 filters]
+    L --> M[MaxPooling]
+    M --> N[Conv2D 64 filters]
+    N --> O[MaxPooling]
+    O --> P[Flatten]
+    P --> Q[Dense 128]
+    Q --> R[Dropout 0.25]
+    R --> S[Dense 26 softmax]
+
+    S --> T[Evaluate on test set]
+    T --> U[test_accuracy + test_loss]
+    T --> V[sample_predictions.json]
+    T --> W[confusion_matrix.csv]
+    T --> X[model_architecture.json]
+    T --> Y[summary.md]
+
+    S --> Z[Gradio demo inference]
+    Z --> AA[User draws letter]
+    AA --> AB[prepare_image_for_inference]
+    AB --> AC[Predict probabilities for a-z]

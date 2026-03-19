@@ -1,0 +1,14 @@
+flowchart LR
+    A[Input Image<br/>28x28 grayscale letter] --> B[Convolution Layer<br/>learns local patterns like edges, curves, strokes]
+    B --> C[Activation ReLU<br/>keeps useful signal, adds non-linearity]
+    C --> D[Pooling Layer<br/>reduces spatial size, keeps important features]
+    D --> E[Deeper Convolution Layers<br/>learn higher-level shapes and combinations]
+    E --> F[Flatten<br/>convert feature maps into 1D vector]
+    F --> G[Dense Layer<br/>combine learned features for classification]
+    G --> H[Softmax Output<br/>probability across 26 letters]
+    H --> I[Predicted Letter]
+
+    J[Training Labels<br/>true a-z class] --> K[Loss Function<br/>categorical crossentropy]
+    H --> K
+    K --> L[Backpropagation<br/>update filters and weights]
+    L --> B

@@ -1,0 +1,46 @@
+flowchart TD
+    A[main()] --> B[parse_args]
+    B --> C[build_config]
+    C --> D[ensure_directories]
+    D --> E[set_reproducibility]
+
+    E --> F[preprocess_and_cache]
+    F --> G{Cache exists<br/>and no force rebuild?}
+
+    G -- Yes --> H[Load cached arrays from NPZ]
+    G -- No --> I[load_raw_data from CSV files]
+    I --> J[Split labels and pixels]
+    J --> K[Reshape 28x28 images]
+    K --> L[Transpose image orientation]
+    L --> M[Normalize pixel values 0 to 1]
+    M --> N[Add channel dimension]
+    N --> O[One-hot encode labels]
+    O --> P[Save compressed cache]
+    P --> H
+
+    H --> Q[train_or_load_model]
+    Q --> R{Saved model exists<br/>and no force retrain?}
+
+    R -- Yes --> S[Load Keras model from disk]
+    R -- No --> T[build_model]
+    T --> U[Train CNN with model.fit]
+    U --> V[Save trained model]
+    V --> S
+
+    S --> W[compute_metrics]
+    W --> X[Evaluate test loss and accuracy]
+    X --> Y[Predict test probabilities]
+    Y --> Z[Create sample predictions]
+    Z --> AA[Build confusion matrix]
+
+    AA --> AB[save_results]
+    AB --> AC[Write metrics.json]
+    AB --> AD[Write sample_predictions.json]
+    AB --> AE[Write confusion_matrix.csv]
+    AB --> AF[Write model_architecture.json]
+    AB --> AG[Write summary.md]
+
+    AG --> AH{launch_demo enabled?}
+    AH -- Yes --> AI[build_demo with Gradio Sketchpad]
+    AI --> AJ[Launch interactive handwriting demo]
+    AH -- No --> AK[Exit]

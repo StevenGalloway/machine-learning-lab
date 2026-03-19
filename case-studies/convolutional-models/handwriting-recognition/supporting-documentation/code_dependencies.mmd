@@ -1,0 +1,17 @@
+flowchart TD
+    A[main] --> B[parse_args]
+    A --> C[build_config]
+    A --> D[ensure_directories]
+    A --> E[set_reproducibility]
+    A --> F[preprocess_and_cache]
+    A --> G[train_or_load_model]
+    A --> H[compute_metrics]
+    A --> I[save_results]
+    A --> J[build_demo]
+
+    F --> K[load_raw_data]
+
+    G --> L[build_model]
+
+    J --> M[build_predict_fn]
+    M --> N[prepare_image_for_inference]

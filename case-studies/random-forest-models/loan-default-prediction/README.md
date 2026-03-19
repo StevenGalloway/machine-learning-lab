@@ -20,3 +20,4 @@ Fintech startup **real-time underwriting** case study.
 ```bash
 python loan_default_random_forest.py
 ```
+Generated: 2026-01-25
