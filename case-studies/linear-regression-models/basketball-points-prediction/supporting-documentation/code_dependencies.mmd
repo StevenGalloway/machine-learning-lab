@@ -1,0 +1,12 @@
+flowchart TD
+    A[main] --> B[load_data]
+    A --> C[validate_schema]
+    A --> D[make_features_and_target]
+    A --> E[time_ordered_split]
+    A --> F[compute_metrics]
+    A --> G[pretty_print]
+    A --> H[save_plots]
+    A --> I[save_metrics_json]
+
+    D --> J[mp_to_minutes]
+    F --> K[smape]
