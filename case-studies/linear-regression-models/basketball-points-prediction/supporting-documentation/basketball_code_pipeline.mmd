@@ -1,0 +1,32 @@
+flowchart LR
+    A[Raw basketball CSV] --> B[Schema validation]
+    B --> C[Feature engineering]
+
+    C --> D[MP string to numeric minutes]
+    D --> E[Sort by Player + Date]
+    E --> F[Shift PTS by one game]
+    F --> G[Create target: PTS_next]
+
+    G --> H[Select features<br/>MIN_float, FGA, 3PA, FTA, ORB, DRB, AST, STL, BLK, TOV, PF]
+    H --> I[Time-ordered train/test split]
+
+    I --> J[Baseline: next = current points]
+    I --> K[LinearRegression]
+
+    K --> L[Predictions on test set]
+    J --> M[Baseline metrics]
+    L --> N[Model metrics]
+
+    K --> O[Raw coefficients]
+    H --> P[StandardScaler]
+    P --> Q[Standardized LinearRegression]
+    Q --> R[Standardized coefficients]
+
+    M --> S[metrics.json]
+    N --> S
+    O --> T[coefficients.csv]
+    R --> T
+
+    L --> U[parity_plot.png]
+    L --> V[residuals.png]
+    R --> W[feature_importance.png]

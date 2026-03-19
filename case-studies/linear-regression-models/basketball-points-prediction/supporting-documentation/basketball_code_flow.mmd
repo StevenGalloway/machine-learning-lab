@@ -1,0 +1,44 @@
+flowchart TD
+    A[main] --> B[load_data]
+    B --> C[validate_schema]
+    C --> D[make_features_and_target]
+
+    D --> E[Convert Date to datetime]
+    E --> F[Convert MP to numeric minutes with mp_to_minutes]
+    F --> G[Sort by Player and Date]
+    G --> H[Create target PTS_next using next game points]
+    H --> I[Drop rows missing target or minutes]
+    I --> J[Cast feature columns to float]
+
+    J --> K[time_ordered_split]
+    K --> L[Build X_train, y_train, X_test, y_test]
+
+    L --> M[Baseline prediction<br/>next game points = current game points]
+    M --> N[compute_metrics for baseline]
+    N --> O[pretty_print baseline results]
+
+    O --> P[Train LinearRegression on training set]
+    P --> Q[Predict on test set]
+    Q --> R[compute_metrics for model]
+    R --> S[pretty_print model results]
+
+    S --> T[Fit StandardScaler on X_train]
+    T --> U[Transform X_train]
+    U --> V[Train second LinearRegression on standardized features]
+    V --> W[Generate comparable standardized coefficients]
+
+    W --> X[Create coefficients table]
+    X --> Y[Write coefficients.csv]
+
+    Y --> Z{GENERATE_PLOTS?}
+    Z -- Yes --> AA[save_plots]
+    AA --> AB[Create parity plot]
+    AA --> AC[Create residual plot]
+    AA --> AD[Create standardized coefficient importance plot]
+
+    AD --> AE{GENERATE_METRICS_JSON?}
+    Y --> AE
+    AE -- Yes --> AF[Build metrics payload]
+    AF --> AG[Write metrics.json]
+    AG --> AH[End]
+    AE -- No --> AH
