@@ -1,0 +1,9 @@
+flowchart TD
+    A[main] --> B[load_data]
+    A --> C[validate_schema]
+    A --> D[compute_metrics]
+    A --> E[pretty_print]
+    A --> F[save_plots]
+    A --> G[save_metrics_json]
+
+    D --> H[smape]
