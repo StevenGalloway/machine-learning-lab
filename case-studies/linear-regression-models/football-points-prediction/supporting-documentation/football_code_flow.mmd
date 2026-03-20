@@ -1,0 +1,32 @@
+flowchart TD
+    A[main] --> B[Parse CLI args]
+    B --> C[Select dataset<br/>nfl or cfb]
+    C --> D[load_data]
+    D --> E[validate_schema]
+
+    E --> F[Extract X = FirstDowns]
+    F --> G[Extract y = Points]
+
+    G --> H[train_test_split]
+    H --> I[Fit DummyRegressor baseline mean]
+    I --> J[Predict baseline on test set]
+    J --> K[compute_metrics baseline]
+    K --> L[pretty_print baseline]
+
+    L --> M[Fit LinearRegression]
+    M --> N[Predict on test set]
+    N --> O[compute_metrics model]
+    O --> P[pretty_print model]
+
+    P --> Q{GENERATE_PLOTS?}
+    Q -- Yes --> R[save_plots]
+    R --> S[Fit line plot]
+    R --> T[Parity plot]
+    R --> U[Residual plot]
+
+    U --> V{GENERATE_METRICS_JSON?}
+    P --> V
+    V -- Yes --> W[Build metrics payload]
+    W --> X[Save metrics_dataset.json]
+    X --> Y[End]
+    V -- No --> Y

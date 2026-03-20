@@ -1,0 +1,24 @@
+flowchart LR
+    A[NFL or CFB CSV] --> B[Schema validation]
+    B --> C[Single feature selection<br/>FirstDowns]
+    C --> D[Target selection<br/>Points]
+
+    D --> E[Random train/test split]
+
+    E --> F[Baseline model<br/>DummyRegressor mean]
+    E --> G[LinearRegression]
+
+    F --> H[Baseline predictions]
+    G --> I[Predicted points]
+
+    H --> J[Baseline metrics]
+    I --> K[Model metrics]
+
+    G --> L[Intercept + slope]
+    I --> M[Fit line plot]
+    I --> N[Parity plot]
+    I --> O[Residual plot]
+
+    J --> P[metrics_nfl.json / metrics_cfb.json]
+    K --> P
+    L --> P
