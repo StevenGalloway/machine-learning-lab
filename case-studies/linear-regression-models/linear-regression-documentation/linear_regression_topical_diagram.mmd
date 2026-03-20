@@ -1,0 +1,8 @@
+flowchart LR
+    A[Input Features<br/>game stats, first downs, minutes, rebounds, assists, etc.] --> B[Weighted Linear Combination<br/>y = b0 + b1x1 + b2x2 + ... + bnxn]
+    B --> C[Predicted Points]
+    C --> D[Compare to Actual Points]
+    D --> E[Error / Residual<br/>Actual - Predicted]
+    E --> F[Fit Best Line / Plane<br/>minimize squared error]
+    F --> G[Learned Coefficients]
+    G --> H[Interpret Feature Impact<br/>positive, negative, stronger, weaker]

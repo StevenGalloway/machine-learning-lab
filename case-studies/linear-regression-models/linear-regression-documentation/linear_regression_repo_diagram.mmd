@@ -1,0 +1,16 @@
+flowchart TD
+    A[Linear Regression Models Repo] --> B[Basketball Points Prediction]
+    A --> C[Football Points Prediction]
+
+    B --> D[Multi-feature regression]
+    B --> E[Target = next-game points]
+    B --> F[Time-ordered split]
+    B --> G[Baseline = next game equals current game]
+    B --> H[Artifacts: metrics, coefficients, parity, residuals, feature importance]
+
+    C --> I[Single-feature regression]
+    C --> J[Target = points scored]
+    C --> K[Dataset switch = nfl or cfb]
+    C --> L[Random train/test split]
+    C --> M[Baseline = mean predictor]
+    C --> N[Artifacts: metrics, fit line, parity, residuals]
