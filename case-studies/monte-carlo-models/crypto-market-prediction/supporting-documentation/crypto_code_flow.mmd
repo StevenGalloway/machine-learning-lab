@@ -1,0 +1,32 @@
+flowchart TD
+    A[main] --> B[parse_args]
+    B --> C[validate_config]
+    C --> D[download_or_load_prices]
+
+    D --> E[ensure_directories]
+    D --> F{Fresh cache exists?}
+
+    F -- Yes --> G[Load cached_prices.csv]
+    F -- No --> H[Download crypto prices from yfinance]
+    H --> I[extract_close_frame]
+    I --> J[Save cached_prices.csv]
+    J --> G
+
+    G --> K[simulate_gbm_paths]
+    K --> L[compute_log_returns]
+    L --> M[Estimate annualized drift]
+    L --> N[Estimate annualized covariance]
+    M --> O[Generate correlated noise]
+    N --> O
+    O --> P[Simulate asset paths]
+    P --> Q[Normalize by starting price]
+    Q --> R[Apply user portfolio weights]
+    R --> S[Create weighted portfolio paths]
+
+    S --> T[build_metrics_payload]
+    T --> U[save_json metrics.json]
+    U --> V[plot_portfolio_paths]
+    V --> W[plot_terminal_distribution]
+    W --> X[build_summary_markdown]
+    X --> Y[Write summary.md]
+    Y --> Z[End]

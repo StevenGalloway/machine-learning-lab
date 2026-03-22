@@ -1,0 +1,26 @@
+flowchart LR
+    A[yfinance crypto prices] --> B[Close / adjusted close frame]
+    B --> C[Daily log returns]
+    C --> D[Annualized drift vector]
+    C --> E[Annualized covariance matrix]
+
+    D --> F[Monte Carlo GBM simulation]
+    E --> F
+    G[Random seed] --> F
+
+    F --> H[Simulated asset paths]
+    H --> I[Normalize each asset to starting value 1.0]
+    I --> J[Apply custom portfolio weights]
+    J --> K[Portfolio simulation paths]
+
+    K --> L[Terminal portfolio distribution]
+    L --> M[Expected return %]
+    L --> N[Probability of loss]
+    L --> O[P10 / P50 / P90]
+
+    K --> P[portfolio_paths.png]
+    L --> Q[terminal_value_distribution.png]
+    M --> R[metrics.json]
+    N --> R
+    O --> R
+    R --> S[summary.md]
