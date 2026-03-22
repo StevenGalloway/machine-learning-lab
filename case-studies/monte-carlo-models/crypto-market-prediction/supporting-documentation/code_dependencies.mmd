@@ -1,0 +1,16 @@
+flowchart TD
+    A[main] --> B[parse_args]
+    A --> C[validate_config]
+    A --> D[download_or_load_prices]
+    A --> E[simulate_gbm_paths]
+    A --> F[build_metrics_payload]
+    A --> G[save_json]
+    A --> H[plot_portfolio_paths]
+    A --> I[plot_terminal_distribution]
+    A --> J[build_summary_markdown]
+
+    D --> K[ensure_directories]
+    D --> L[is_cache_fresh]
+    D --> M[extract_close_frame]
+
+    E --> N[compute_log_returns]
