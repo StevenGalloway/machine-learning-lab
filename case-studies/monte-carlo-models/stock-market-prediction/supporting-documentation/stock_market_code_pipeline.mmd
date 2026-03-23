@@ -1,0 +1,21 @@
+flowchart LR
+    A[yfinance stock prices] --> B[Adjusted close price frame]
+    B --> C[Daily log returns]
+    C --> D[Annualized drift]
+    C --> E[Annualized covariance matrix]
+
+    D --> F[Geometric Brownian Motion simulation]
+    E --> F
+    G[Random seed] --> F
+
+    F --> H[Simulated asset paths]
+    H --> I[Equal-weight portfolio paths]
+    I --> J[Terminal portfolio values]
+
+    J --> K[Mean / std / percentiles]
+    J --> L[Probability of loss]
+    I --> M[portfolio_paths.png]
+    J --> N[terminal_value_distribution.png]
+    K --> O[metrics.json]
+    L --> O
+    O --> P[summary.md]
