@@ -1,0 +1,9 @@
+flowchart LR
+    A[Historical NFL Play-by-Play] --> B[Engineer Team Strength Features<br/>EPA, success rate, explosive rate, turnovers, sacks]
+    B --> C[Create Rolling Pregame Team Snapshots]
+    C --> D[Add Elo Ratings]
+    D --> E[Build Historical Matchup Dataset]
+    E --> F[Train Calibrated Classifier]
+    F --> G[Input Future Matchup]
+    G --> H[Estimate Win Probability]
+    H --> I[Scenario-Based Forecasting / Decision Support]
