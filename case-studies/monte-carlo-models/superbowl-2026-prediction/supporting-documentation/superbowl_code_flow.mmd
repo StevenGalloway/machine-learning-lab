@@ -1,0 +1,37 @@
+flowchart TD
+    A[main] --> B[parse_args]
+    B --> C[build_config_from_args]
+    C --> D[resolve_project_root]
+    D --> E[ensure_directory data/results]
+
+    E --> F[load_pbp_all_seasons]
+    F --> G{Fresh parquet cache exists?}
+    G -- Yes --> H[Read cached nfl_pbp_all_seasons.parquet]
+    G -- No --> I[Load play-by-play from nflreadpy]
+    I --> J[Filter/select relevant columns]
+    J --> K[Apply schema fallbacks]
+    K --> L[Write parquet cache]
+    L --> H
+
+    H --> M[games_from_pbp]
+    M --> N[team_games_from_pbp]
+    N --> O[add_pregame_rolling_features]
+    O --> P[compute_elo_table]
+    P --> Q[make_matchups]
+
+    Q --> R[train_model]
+    R --> S[HistGradientBoostingClassifier]
+    S --> T[CalibratedClassifierCV]
+    T --> U[Model metrics]
+
+    U --> V[build_team_snapshot]
+    V --> W[resolve_team_code]
+    W --> X[build_matchup_row_from_snapshot]
+    X --> Y[neutral_site_probability]
+
+    Y --> Z[save_results]
+    Z --> AA[metrics.json]
+    Z --> AB[prediction.json]
+    Z --> AC[feature_columns.json]
+    Z --> AD[summary.md]
+    AD --> AE[End]

@@ -1,0 +1,24 @@
+flowchart LR
+    A[NFL play-by-play data] --> B[Game-level table]
+    B --> C[Team game history table]
+
+    C --> D[Rolling offensive features<br/>EPA, success rate, explosive rate, pass/rush EPA]
+    C --> E[Rolling defensive features<br/>EPA allowed, success allowed, takeaways, sack rate]
+    C --> F[Point differential / net EPA]
+
+    D --> G[Pregame team feature snapshot]
+    E --> G
+    F --> G
+
+    B --> H[Elo rating history]
+    H --> I[Pregame Elo features]
+
+    G --> J[Historical matchup rows]
+    I --> J
+
+    J --> K[Train calibrated classifier]
+    K --> L[Matchup win probability]
+    L --> M[prediction.json]
+
+    K --> N[Accuracy / ROC AUC / log loss / Brier score]
+    N --> O[metrics.json]
