@@ -1,0 +1,22 @@
+flowchart TD
+    A[main] --> B[parse_args]
+    A --> C[build_config_from_args]
+    A --> D[load_pbp_all_seasons]
+    A --> E[games_from_pbp]
+    A --> F[team_games_from_pbp]
+    A --> G[add_pregame_rolling_features]
+    A --> H[compute_elo_table]
+    A --> I[make_matchups]
+    A --> J[train_model]
+    A --> K[build_team_snapshot]
+    A --> L[resolve_team_code]
+    A --> M[build_matchup_row_from_snapshot]
+    A --> N[neutral_site_probability]
+    A --> O[save_results]
+
+    D --> P[resolve_project_root]
+    D --> Q[ensure_directory]
+    D --> R[cache_is_fresh]
+
+    O --> S[save_json]
+    S --> T[make_json_safe]
