@@ -1,0 +1,19 @@
+flowchart TD
+    A[Text Sender Identification] --> B[Shared Core]
+    A --> C[Batch Script]
+    A --> D[Live Script]
+
+    B --> E[Dataset loading and validation]
+    B --> F[Feature engineering with CountVectorizer]
+    B --> G[Multinomial Naive Bayes classifier]
+    B --> H[Train/test evaluation]
+
+    C --> I[Focus: reproducible offline evaluation]
+    C --> J[Produces confusion matrix plot]
+    C --> K[Produces metrics.json]
+    C --> L[Stores structured results artifacts]
+
+    D --> M[Focus: interactive inference]
+    D --> N[Accepts user-entered text]
+    D --> O[Normalizes time-of-day aliases]
+    D --> P[Returns live probabilities by sender]
