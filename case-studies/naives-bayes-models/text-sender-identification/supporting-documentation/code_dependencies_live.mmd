@@ -1,0 +1,9 @@
+flowchart TD
+    A[main] --> B[load_dataset]
+    A --> C[build_model]
+    A --> D[compute_metrics]
+    A --> E[pretty_print]
+    A --> F[interactive_loop]
+
+    F --> G[normalize_time_of_day]
+    F --> H[predict_sender]
