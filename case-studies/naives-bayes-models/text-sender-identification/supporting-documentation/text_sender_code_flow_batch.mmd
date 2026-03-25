@@ -1,0 +1,33 @@
+flowchart TD
+    A[main] --> B[load_dataset]
+    B --> C[Validate file exists]
+    C --> D[Read CSV into DataFrame]
+    D --> E[Check required columns<br/>text, time_of_day, label]
+    E --> F[Normalize text/time/label fields]
+    F --> G[Validate allowed time_of_day values]
+
+    G --> H[Build X and y]
+    H --> I[train_test_split with stratify]
+    I --> J[Create majority-class baseline predictions]
+    J --> K[compute_metrics baseline]
+    K --> L[pretty_print baseline]
+
+    L --> M[build_model]
+    M --> N[ColumnTransformer]
+    N --> O[CountVectorizer on text<br/>unigrams + bigrams]
+    N --> P[CountVectorizer on time_of_day]
+    O --> Q[Pipeline]
+    P --> Q
+    Q --> R[Multinomial Naive Bayes]
+
+    R --> S[Fit model on training data]
+    S --> T[Predict on test data]
+    T --> U[compute_metrics model]
+    U --> V[pretty_print model]
+
+    V --> W[Build confusion matrix]
+    W --> X[save_confusion_matrix_plot]
+    X --> Y[Build classification_report dict]
+    Y --> Z[Assemble payload]
+    Z --> AA[save_metrics_json metrics.json]
+    AA --> AB[End]

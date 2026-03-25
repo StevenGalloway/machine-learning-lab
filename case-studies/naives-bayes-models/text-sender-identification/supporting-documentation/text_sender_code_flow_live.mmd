@@ -1,0 +1,41 @@
+flowchart TD
+    A[main] --> B[load_dataset]
+    B --> C[Validate schema and normalize values]
+    C --> D[Build X and y]
+    D --> E[train_test_split with stratify]
+
+    E --> F[Create majority baseline]
+    F --> G[compute_metrics baseline]
+
+    G --> H[build_model]
+    H --> I[CountVectorizer text + CountVectorizer time_of_day]
+    I --> J[MultinomialNB pipeline]
+    J --> K[Fit model]
+
+    K --> L[Predict test set]
+    L --> M[compute_metrics model]
+
+    M --> N{PRINT_EVAL enabled?}
+    N -- Yes --> O[pretty_print baseline and model]
+    O --> P[Print confusion matrix]
+    P --> Q[Print classification report]
+    N -- No --> R[Skip printed evaluation]
+
+    Q --> S{SAVE_METRICS_JSON enabled?}
+    R --> S
+    S -- Yes --> T[Write metrics_interactive.json]
+    S -- No --> U[Skip metrics file]
+
+    T --> V[interactive_loop]
+    U --> V
+
+    V --> W[Prompt for message text]
+    W --> X[Prompt for time_of_day]
+    X --> Y[normalize_time_of_day]
+    Y --> Z[predict_sender]
+    Z --> AA[model.predict]
+    Z --> AB[model.predict_proba]
+    AA --> AC[Display predicted sender]
+    AB --> AD[Display ranked probabilities]
+    AC --> W
+    AD --> W
