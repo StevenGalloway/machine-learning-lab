@@ -1,0 +1,16 @@
+flowchart LR
+    A[User types message text] --> B[User provides time_of_day]
+    B --> C[normalize_time_of_day]
+    C --> D[Create one-row DataFrame]
+
+    D --> E[Pipeline feature extraction]
+    E --> F[Text count features]
+    E --> G[Time-of-day token feature]
+
+    F --> H[MultinomialNB]
+    G --> H
+
+    H --> I[Predicted label]
+    H --> J[Class probabilities]
+    I --> K[Display predicted sender]
+    J --> L[Display ranked top probabilities]

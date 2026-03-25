@@ -1,0 +1,28 @@
+flowchart LR
+    A[sms_sender_dataset_1000.csv] --> B[Load and validate dataset]
+    B --> C[Normalize fields]
+    C --> D[Feature set<br/>text + time_of_day]
+    D --> E[Target label]
+
+    D --> F[Train/test split]
+    E --> F
+
+    F --> G[Baseline: majority class]
+    F --> H[Feature engineering with ColumnTransformer]
+
+    H --> I[Text counts<br/>CountVectorizer ngram_range 1,2]
+    H --> J[Time-of-day token counts<br/>CountVectorizer]
+
+    I --> K[MultinomialNB]
+    J --> K
+
+    K --> L[Test predictions]
+    G --> M[Baseline metrics]
+    L --> N[Model accuracy + macro F1]
+    L --> O[Confusion matrix]
+    L --> P[Per-class precision/recall/F1]
+
+    N --> Q[metrics.json]
+    O --> R[confusion_matrix.png]
+    P --> Q
+    M --> Q
