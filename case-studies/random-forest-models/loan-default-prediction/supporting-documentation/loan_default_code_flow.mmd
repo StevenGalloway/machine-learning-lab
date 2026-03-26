@@ -1,0 +1,44 @@
+flowchart TD
+    A[main] --> B[Read CSV loan dataset]
+    B --> C[Split into X and y<br/>target = default]
+    C --> D[Detect numeric and categorical columns]
+
+    D --> E[Build numeric preprocessing pipeline]
+    E --> F[Median imputation]
+    F --> G[StandardScaler]
+
+    D --> H[Build categorical preprocessing pipeline]
+    H --> I[Most-frequent imputation]
+    I --> J[OneHotEncoder]
+
+    G --> K[ColumnTransformer preprocess]
+    J --> K
+
+    K --> L[train_test_split stratified]
+    L --> M[Train baseline LogisticRegression pipeline]
+    M --> N[Predict probabilities baseline]
+    N --> O[Compute baseline ROC AUC]
+
+    O --> P[Configure RandomForestClassifier]
+    P --> Q[Wrap with CalibratedClassifierCV isotonic]
+    Q --> R[Build RF pipeline with preprocess]
+    R --> S[Fit calibrated random forest]
+    S --> T[Predict probabilities on test set]
+    T --> U[Compute RF ROC AUC]
+
+    U --> V[Plot ROC curve]
+    U --> W[choose_cost_aware_threshold]
+    W --> X[threshold_metrics across many thresholds]
+    X --> Y[Select threshold minimizing FNR under max FPR]
+
+    Y --> Z[Build confusion matrix at chosen threshold]
+    Z --> AA[Plot confusion matrix]
+
+    S --> AB[get_rf_feature_importances]
+    AB --> AC[Extract feature names after preprocessing]
+    AC --> AD[Plot top 20 feature importances]
+
+    T --> AE[Compute AUC by sex subgroup]
+    AE --> AF[Assemble metrics payload]
+    AF --> AG[Write metrics.json]
+    AG --> AH[Print summary metrics]

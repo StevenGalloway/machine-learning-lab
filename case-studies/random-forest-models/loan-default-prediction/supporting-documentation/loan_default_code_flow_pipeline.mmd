@@ -1,0 +1,30 @@
+flowchart LR
+    A[Loan application dataset] --> B[Separate target: default]
+    B --> C[Split numeric and categorical features]
+
+    C --> D[Numeric preprocessing<br/>median impute + scale]
+    C --> E[Categorical preprocessing<br/>most-frequent impute + one-hot encode]
+
+    D --> F[Baseline logistic regression]
+    E --> F
+
+    D --> G[RandomForestClassifier]
+    E --> G
+    G --> H[Probability calibration<br/>isotonic CV]
+
+    F --> I[Baseline ROC AUC]
+    H --> J[RF predicted probabilities]
+
+    J --> K[Threshold search<br/>optimize FNR under FPR constraint]
+    K --> L[Confusion matrix at chosen threshold]
+
+    J --> M[ROC curve]
+    H --> N[Feature importances]
+    J --> O[Fairness slice by sex]
+
+    I --> P[metrics.json]
+    L --> P
+    M --> Q[roc_curve.png]
+    N --> R[feature_importance_top20.png]
+    L --> S[confusion_matrix.png]
+    O --> P
