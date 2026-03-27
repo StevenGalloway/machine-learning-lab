@@ -1,0 +1,13 @@
+flowchart TD
+    A[main] --> B[_safe_mkdirs]
+    A --> C[load_and_prepare]
+    A --> D[build_pipelines]
+    A --> E[season_aware_split]
+    A --> F[plot_roc]
+    A --> G[plot_confusion]
+    A --> H[plot_feature_importance]
+    A --> I[predict_single_game]
+    A --> J[write_metrics_json]
+
+    C --> K[_week_to_num]
+    J --> L[_sha256_file]
