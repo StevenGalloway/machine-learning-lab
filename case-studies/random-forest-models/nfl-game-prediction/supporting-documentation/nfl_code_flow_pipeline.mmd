@@ -1,0 +1,30 @@
+flowchart LR
+    A[Historical NFL games CSV] --> B[Validate and clean dataset]
+    B --> C[Create target: home_win]
+    C --> D[Engineer features<br/>week_num month optional rest/spread/OU]
+    D --> E[Season-aware train/test split]
+
+    E --> F[Categorical preprocessing<br/>team_home team_away one-hot]
+    E --> G[Numeric preprocessing<br/>median impute]
+
+    F --> H[Baseline logistic regression]
+    G --> H
+
+    F --> I[RandomForestClassifier]
+    G --> I
+    I --> J[Probability calibration]
+
+    H --> K[Baseline metrics]
+    J --> L[RF probabilities]
+    L --> M[Accuracy AUC Brier log loss precision recall F1]
+    L --> N[ROC curve]
+    L --> O[Confusion matrix]
+    J --> P[Feature importances]
+
+    J --> Q[Single-game inference example]
+    Q --> R[P(home team wins)]
+
+    M --> S[metrics.json]
+    N --> T[roc_curve.png]
+    O --> U[confusion_matrix.png]
+    P --> V[feature_importance_top20.png]

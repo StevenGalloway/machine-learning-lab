@@ -1,0 +1,53 @@
+flowchart TD
+    A[main] --> B[_safe_mkdirs]
+    B --> C[Parse CLI args]
+    C --> D[Resolve data path]
+    D --> E[load_and_prepare]
+
+    E --> F[Read CSV]
+    F --> G[Validate required columns]
+    G --> H[Parse schedule_date]
+    H --> I[Create target home_win]
+    I --> J[Convert schedule_week to numeric]
+    J --> K[Create month feature]
+    K --> L[Process optional numeric columns]
+    L --> M[Filter to seasons >= 2002]
+
+    M --> N[season_aware_split]
+    N --> O[build_pipelines]
+
+    O --> P[Build preprocessing pipeline]
+    P --> Q[Categorical: team_home team_away]
+    P --> R[Numeric: season week month optional stats]
+    Q --> S[OneHotEncoder]
+    R --> T[Median imputer]
+
+    S --> U[Baseline LogisticRegression pipeline]
+    T --> U
+    S --> V[RandomForestClassifier]
+    T --> V
+    V --> W[CalibratedClassifierCV]
+    W --> X[Random Forest pipeline]
+
+    X --> Y[Fit baseline and RF models]
+    Y --> Z[Baseline predict_proba]
+    Y --> AA[RF predict_proba]
+
+    Z --> AB[Compute baseline metrics]
+    AA --> AC[Compute RF metrics]
+    AC --> AD[Extract RF hyperparameters]
+
+    AA --> AE[plot_roc]
+    AE --> AF[plot_confusion]
+    AF --> AG[plot_feature_importance]
+
+    AC --> AH[Build PredictionQuery]
+    AH --> AI[predict_single_game]
+    AI --> AJ[Example home win probability]
+
+    AB --> AK[Assemble metrics payload]
+    AC --> AK
+    AD --> AK
+    AJ --> AK
+    AK --> AL[write_metrics_json]
+    AL --> AM[Print summary]
