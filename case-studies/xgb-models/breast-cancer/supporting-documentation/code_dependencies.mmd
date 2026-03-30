@@ -1,0 +1,20 @@
+flowchart TD
+    A[main] --> B[compute_metrics]
+    A --> C[choose_threshold]
+    A --> D[pretty_print]
+    A --> E[save_artifacts]
+
+    C --> F[roc_curve]
+    B --> G[confusion_matrix]
+    B --> H[accuracy_score]
+    B --> I[roc_auc_score]
+    B --> J[f1_score]
+    B --> K[brier_score_loss]
+
+    D --> L[logging.getLogger]
+
+    E --> M[json.dumps]
+    E --> N[roc_curve]
+    E --> O[confusion_matrix]
+    E --> P[matplotlib.pyplot]
+    E --> Q[pathlib.Path]
