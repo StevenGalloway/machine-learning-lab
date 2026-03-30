@@ -1,0 +1,25 @@
+flowchart LR
+    A[Breast cancer feature matrix] --> B[Train/test split]
+    B --> C[Baseline logistic regression with scaling]
+    B --> D[XGBoost classifier<br/>or GradientBoosting fallback]
+
+    C --> E[Baseline probabilities]
+    D --> F[Boosted model probabilities]
+
+    E --> G[Default threshold 0.50]
+    F --> H[Default threshold 0.50]
+    H --> I[ROC-based threshold search]
+    I --> J[Constraint: sensitivity >= 0.97]
+    J --> K[Choose threshold with lowest false positive rate]
+
+    G --> L[Baseline metrics]
+    H --> M[Default boosted metrics]
+    K --> N[High-sensitivity boosted metrics]
+
+    L --> O[save_artifacts]
+    M --> O
+    N --> O
+
+    O --> P[metrics.json<br/>all three model results]
+    O --> Q[roc_curve.png<br/>LogReg vs XGBoost AUC]
+    O --> R[confusion_matrix.png<br/>XGBoost at clinical threshold]
