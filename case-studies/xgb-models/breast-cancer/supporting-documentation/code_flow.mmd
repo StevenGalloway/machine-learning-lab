@@ -1,0 +1,37 @@
+flowchart TD
+    A[main] --> B[load_breast_cancer dataset]
+    B --> C[Recode target<br/>malignant = 1, benign = 0]
+    C --> D[train_test_split stratified]
+
+    D --> E[Build baseline pipeline]
+    E --> F[StandardScaler]
+    F --> G[LogisticRegression]
+    G --> H[Fit baseline]
+    H --> I[Predict probabilities baseline]
+    I --> J[Threshold at 0.50]
+    J --> K[compute_metrics baseline]
+    K --> L[pretty_print baseline]
+
+    L --> M{Is xgboost installed?}
+    M -- Yes --> N[Build XGBClassifier]
+    M -- No --> O[Fallback GradientBoostingClassifier]
+
+    N --> P[Fit boosted model]
+    O --> P
+    P --> Q[Predict probabilities]
+    Q --> R[Threshold at 0.50]
+    R --> S[compute_metrics boosted model]
+    S --> T[pretty_print boosted model]
+
+    T --> U[choose_threshold min_sens = 0.97]
+    U --> V[Apply high-sensitivity threshold]
+    V --> W[compute_metrics threshold-adjusted model]
+    W --> X[pretty_print clinically oriented operating point]
+
+    X --> Y[save_artifacts]
+    Y --> Y1[Write metrics.json<br/>baseline + xgboost + high-sens]
+    Y --> Y2[Write roc_curve.png<br/>LogReg vs XGBoost]
+    Y --> Y3[Write confusion_matrix.png<br/>XGBoost at clinical threshold]
+    Y1 --> Z[End]
+    Y2 --> Z
+    Y3 --> Z
