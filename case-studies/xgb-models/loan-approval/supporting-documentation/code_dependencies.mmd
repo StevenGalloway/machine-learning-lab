@@ -1,0 +1,11 @@
+flowchart TD
+    A[main] --> B[load_data]
+    A --> C[validate_schema]
+    A --> D[compute_metrics]
+    A --> E[choose_threshold_by_precision]
+    A --> F[pretty_print]
+    A --> G[save_plots]
+    A --> H[save_metrics_json]
+
+    G --> I[roc_curve]
+    G --> J[confusion_matrix]
