@@ -1,0 +1,23 @@
+flowchart LR
+    A[loan_approval_data.csv] --> B[Schema validation]
+    B --> C[Feature selection<br/>Age Income LoanAmount CreditScore]
+    C --> D[Target selection<br/>Approved]
+
+    D --> E[Train/test split]
+    E --> F[Baseline logistic regression]
+    E --> G[XGBoost classifier]
+
+    F --> H[Baseline probabilities]
+    G --> I[XGBoost probabilities]
+
+    H --> J[Default metrics]
+    I --> K[Default threshold 0.50 metrics]
+
+    I --> L[Threshold scan from 0.01 to 0.99]
+    L --> M[Constraint: precision >= 0.90]
+    M --> N[Choose threshold with best recall]
+    N --> O[Policy-threshold metrics]
+
+    O --> P[ROC curve]
+    O --> Q[Confusion matrix]
+    O --> R[metrics.json]

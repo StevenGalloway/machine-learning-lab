@@ -1,0 +1,41 @@
+flowchart TD
+    A[main] --> B[load_data]
+    B --> C[validate_schema]
+    C --> D[Extract X and y]
+
+    D --> E[train_test_split stratified]
+
+    E --> F[Build baseline pipeline]
+    F --> G[StandardScaler]
+    G --> H[LogisticRegression]
+    H --> I[Fit baseline]
+    I --> J[Predict baseline probabilities]
+    J --> K[Threshold at 0.50]
+    K --> L[compute_metrics baseline]
+    L --> M[pretty_print baseline]
+
+    M --> N{Is xgboost available?}
+    N -- No --> O[Raise runtime error]
+    N -- Yes --> P[Build XGBClassifier]
+
+    P --> Q[Fit XGBoost model]
+    Q --> R[Predict probabilities]
+    R --> S[Threshold at 0.50]
+    S --> T[compute_metrics default XGBoost]
+    T --> U[pretty_print default XGBoost]
+
+    U --> V[choose_threshold_by_precision min_precision = 0.90]
+    V --> W[Apply policy threshold]
+    W --> X[compute_metrics policy threshold]
+    X --> Y[pretty_print policy-threshold model]
+
+    Y --> Z{GENERATE_PLOTS?}
+    Z -- Yes --> AA[save_plots]
+    AA --> AB[ROC curve image]
+    AA --> AC[Confusion matrix image]
+
+    Z --> AD{GENERATE_METRICS_JSON?}
+    AD -- Yes --> AE[Assemble payload]
+    AE --> AF[save_metrics_json]
+    AF --> AG[End]
+    AD -- No --> AG
