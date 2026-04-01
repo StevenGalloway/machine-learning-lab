@@ -1,0 +1,10 @@
+flowchart LR
+    A[Historical Data<br/>prices, returns, game outcomes, team metrics] --> B[Estimate Parameters<br/>drift, volatility, covariance, probabilities, feature relationships]
+    B --> C[Random Sampling<br/>draw many possible futures]
+    C --> D[Simulate Thousands of Paths<br/>market prices, portfolio values, matchup outcomes]
+    D --> E[Aggregate Results]
+    E --> F[Distribution of Outcomes<br/>mean, median, percentiles, downside risk, win probability]
+    F --> G[Decision Support<br/>forecasting, scenario analysis, risk assessment]
+
+    H[Random Seed] --> C
+    I[Model Assumptions<br/>GBM, historical stability, calibrated probabilities] --> B

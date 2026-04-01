@@ -1,0 +1,19 @@
+flowchart TD
+    A[Monte Carlo Models Repo] --> B[Stock Market Prediction]
+    A --> C[Crypto Market Prediction]
+    A --> D[Super Bowl 2026 Prediction]
+
+    B --> B1[Historical stock prices from yfinance]
+    B --> B2[Estimate log returns and covariance]
+    B --> B3[Simulate GBM price paths]
+    B --> B4[Generate portfolio outcome metrics and plots]
+
+    C --> C1[Historical crypto prices from yfinance]
+    C --> C2[User-defined portfolio weights]
+    C --> C3[Simulate weighted GBM portfolio paths]
+    C --> C4[Generate terminal value risk metrics and plots]
+
+    D --> D1[Historical NFL play-by-play data]
+    D --> D2[Engineer rolling team features and Elo]
+    D --> D3[Train calibrated classifier]
+    D --> D4[Estimate win probability for a matchup]
