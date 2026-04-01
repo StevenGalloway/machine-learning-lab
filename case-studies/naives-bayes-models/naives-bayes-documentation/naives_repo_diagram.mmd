@@ -1,0 +1,19 @@
+flowchart TD
+    A[Naive Bayes Models Repo] --> B[Text Sender Identification Project]
+
+    B --> C[Dataset<br/>sms_sender_dataset_1000.csv]
+    B --> D[Batch Evaluation Script]
+    B --> E[Interactive Live Script]
+
+    C --> F[Features: text + time_of_day]
+    C --> G[Target: sender label]
+
+    D --> H[Train/test split]
+    D --> I[Majority-class baseline]
+    D --> J[Multinomial Naive Bayes model]
+    D --> K[Artifacts: metrics.json, confusion_matrix.png, classification report]
+
+    E --> L[Train/test split]
+    E --> M[Optional printed evaluation]
+    E --> N[Interactive text input loop]
+    E --> O[Live sender prediction + class probabilities]

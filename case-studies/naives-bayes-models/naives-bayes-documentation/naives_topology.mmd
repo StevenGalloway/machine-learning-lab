@@ -1,0 +1,12 @@
+flowchart LR
+    A[Input Message<br/>text + metadata like time_of_day] --> B[Convert to Features<br/>word counts, n-grams, categorical tokens]
+    B --> C[Estimate Class Probabilities<br/>P(class)]
+    B --> D[Estimate Feature Likelihoods<br/>P(feature | class)]
+    C --> E[Apply Bayes Rule]
+    D --> E
+    E --> F[Posterior Score Per Class<br/>P(class | features)]
+    F --> G[Choose Highest Probability Class]
+    G --> H[Predicted Sender]
+
+    I[Naive Assumption<br/>features treated as conditionally independent given class] --> E
+    J[Laplace Smoothing<br/>handles unseen or rare words] --> D
