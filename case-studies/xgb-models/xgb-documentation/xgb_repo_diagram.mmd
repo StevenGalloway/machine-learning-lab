@@ -1,0 +1,13 @@
+flowchart TD
+    A[XGBoost Models Repo] --> B[Breast Cancer Classification]
+    A --> C[Loan Approval Classification]
+
+    B --> D[Baseline: Logistic Regression]
+    B --> E[Candidate Model: XGBoost]
+    B --> F[Threshold tuned for high sensitivity]
+    B --> G[Focus: minimize missed malignancies]
+
+    C --> H[Baseline: Logistic Regression]
+    C --> I[Candidate Model: XGBoost]
+    C --> J[Threshold tuned for precision floor]
+    C --> K[Focus: minimize false approvals]

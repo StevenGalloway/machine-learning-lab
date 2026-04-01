@@ -1,0 +1,12 @@
+flowchart LR
+    A[Input Features] --> B[Initial Prediction]
+    B --> C[Compute Errors / Residuals]
+    C --> D[Train New Tree to Correct Prior Mistakes]
+    D --> E[Add Tree Contribution<br/>scaled by learning rate]
+    E --> F[Updated Prediction]
+    F --> G{More boosting rounds?}
+    G -- Yes --> C
+    G -- No --> H[Final Ensemble Prediction]
+
+    I[Regularization<br/>depth, shrinkage, subsampling, column sampling] --> D
+    J[Objective Function<br/>loss + penalty] --> C

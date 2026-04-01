@@ -1,0 +1,21 @@
+flowchart TD
+    A[XGBoost Classification Repo] --> B[Breast Cancer Project]
+    A --> C[Loan Approval Project]
+
+    B --> B1[Problem: malignant vs benign classification]
+    B --> B2[Dataset: sklearn built-in breast cancer data]
+    B --> B3[Primary policy: high sensitivity]
+    B --> B4[Goal: reduce false negatives]
+
+    C --> C1[Problem: loan approval classification]
+    C --> C2[Dataset: CSV with structured lending features]
+    C --> C3[Primary policy: precision floor]
+    C --> C4[Goal: reduce false approvals]
+
+    B --> D[Shared patterns]
+    C --> D
+
+    D --> D1[Baseline logistic regression]
+    D --> D2[XGBoost classifier]
+    D --> D3[Probability-based threshold tuning]
+    D --> D4[Governance-friendly metrics]
