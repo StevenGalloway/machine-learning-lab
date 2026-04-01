@@ -1,0 +1,10 @@
+flowchart LR
+    A[Input Features] --> B[Bootstrap Sampling<br/>draw many random training subsets]
+    B --> C[Train Many Decision Trees]
+    C --> D[Random Feature Subsets<br/>each split considers only part of the feature space]
+    D --> E[Individual Tree Predictions]
+    E --> F[Aggregate Predictions]
+    F --> G[Classification: majority vote<br/>or averaged class probability]
+    G --> H[Final Prediction]
+
+    I[Why it works<br/>reduces overfitting by combining diverse trees] --> F

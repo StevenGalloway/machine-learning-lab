@@ -1,0 +1,13 @@
+flowchart TD
+    A[Random Forest Models Repo] --> B[Loan Default Prediction]
+    A --> C[NFL Game Prediction]
+
+    B --> D[Structured tabular loan data]
+    B --> E[Baseline: Logistic Regression]
+    B --> F[Model: Calibrated Random Forest]
+    B --> G[Artifacts: ROC, confusion matrix, feature importance, fairness slice]
+
+    C --> H[NFL historical game data]
+    C --> I[Baseline: Logistic Regression]
+    C --> J[Model: Calibrated Random Forest]
+    C --> K[Artifacts: ROC, confusion matrix, feature importance, prediction example]

@@ -1,0 +1,21 @@
+flowchart TD
+    A[Random Forest Classification Repo] --> B[Loan Default Prediction]
+    A --> C[NFL Game Prediction]
+
+    B --> B1[Problem: borrower default classification]
+    B --> B2[Data: financial + demographic tabular features]
+    B --> B3[Special logic: cost-aware threshold tuning]
+    B --> B4[Extra analysis: fairness AUC by sex]
+
+    C --> C1[Problem: predict whether home team wins]
+    C --> C2[Data: historical game schedule and results]
+    C --> C3[Special logic: season-aware holdout]
+    C --> C4[Extra analysis: example game prediction query]
+
+    B --> D[Shared patterns]
+    C --> D
+
+    D --> D1[Baseline logistic regression]
+    D --> D2[Preprocessing pipelines]
+    D --> D3[Calibrated random forest]
+    D --> D4[ROC + confusion matrix + feature importance]
