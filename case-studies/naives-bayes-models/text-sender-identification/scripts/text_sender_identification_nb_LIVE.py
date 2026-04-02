@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import json
+import logging
 
 import numpy as np
 import pandas as pd
@@ -14,6 +15,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
 
+logger = logging.getLogger(__name__)
 
 # -------------------------
 # Global config
@@ -95,10 +97,10 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> ClassifierMetrics
 
 
 def pretty_print(name: str, m: ClassifierMetrics) -> None:
-    print(f"\n=== {name} ===")
-    print(f"Accuracy: {m.accuracy:.3f}")
-    print(f"Macro F1:  {m.macro_f1:.3f}")
-    print(f"N:         {m.n_test}")
+    logger.info("\n=== %s ===", name)
+    logger.info("Accuracy: %s", f"{m.accuracy:.3f}")
+    logger.info("Macro F1:  %s", f"{m.macro_f1:.3f}")
+    logger.info("N:         %s", m.n_test)
 
 
 def normalize_time_of_day(raw: str) -> str:
@@ -160,7 +162,7 @@ def interactive_loop(model: Pipeline) -> None:
         try:
             tod = normalize_time_of_day(raw_time)
         except ValueError as e:
-            print(f"⚠️  {e}")
+            logger.warning("%s", e)
             continue
 
         pred, ranked = predict_sender(model, raw_text, tod)
@@ -227,4 +229,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
