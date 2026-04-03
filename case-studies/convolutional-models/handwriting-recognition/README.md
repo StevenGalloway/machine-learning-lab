@@ -69,8 +69,7 @@ case-studies/convolutional-models/handwriting-recognition/
 │   ├── model_architecture.json
 │   └── summary.md
 ├── scripts/
-│   ├── handwriting_recognition_cnn.py
-│   └── handwriting-recognition-cm.py
+│   └── handwriting_recognition_cnn.py
 └── supporting-documentation/
     ├── cnn_specific_considerations.md
     ├── convolution_and_pooling_primer.md
@@ -87,6 +86,20 @@ case-studies/convolutional-models/handwriting-recognition/
     ├── risk_analysis.md
     └── stakeholders.md
 ```
+
+## CLI Reference
+
+```
+python scripts/handwriting_recognition_cnn.py [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|---|---|---|---|
+| `--epochs` | `int` | `5` | Number of training epochs |
+| `--batch-size` | `int` | `128` | Mini-batch size during training |
+| `--skip-demo` | flag | `False` | Train and evaluate only; skip Gradio app launch |
+| `--force-rebuild-cache` | flag | `False` | Reprocess raw CSVs and overwrite the `.npz` cache |
+| `--force-retrain` | flag | `False` | Retrain the model even if a saved `.keras` file exists |
 
 ## Architecture Summary
 
