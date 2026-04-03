@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import string
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -15,6 +16,7 @@ import tensorflow as tf
 from tensorflow import keras
 from keras import layers
 
+logger = logging.getLogger(__name__)
 
 @dataclass(frozen=True)
 class Config:
@@ -351,11 +353,16 @@ def main() -> None:
     model, history = train_or_load_model(config, arrays, force_retrain=args.force_retrain)
     metrics = compute_metrics(model, arrays)
     save_results(config, history, metrics)
-    print(f"Test accuracy: {metrics['test_accuracy']:.4f}")
-    print(f"Results written to: {config.results_dir.as_posix()}")
+    logger.info("Test accuracy: %s", f"{metrics['test_accuracy']:.4f}")
+    logger.info("Results written to: %s", config.results_dir.as_posix())
     if config.launch_demo:
         build_demo(model=model, config=config).launch(share=True)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
