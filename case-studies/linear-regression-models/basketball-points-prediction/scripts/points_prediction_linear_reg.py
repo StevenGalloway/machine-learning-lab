@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import json
+import logging
 
 import numpy as np
 import pandas as pd
@@ -11,6 +12,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 
+logger = logging.getLogger(__name__)
 
 # Global configuration
 RANDOM_STATE = 42
@@ -125,13 +127,13 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> RegressionMetrics
 
 
 def pretty_print(name: str, m: RegressionMetrics) -> None:
-    print(f"\n=== {name} ===")
-    print(f"MAE:   {m.mae:.3f}")
-    print(f"RMSE:  {m.rmse:.3f}")
-    print(f"MSE:   {m.mse:.3f}")
-    print(f"R^2:   {m.r2:.3f}")
-    print(f"SMAPE: {m.smape:.3f}")
-    print(f"N:     {m.n_test}")
+    logger.info("\n=== %s ===", name)
+    logger.info("MAE:   %s", f"{m.mae:.3f}")
+    logger.info("RMSE:  %s", f"{m.rmse:.3f}")
+    logger.info("MSE:   %s", f"{m.mse:.3f}")
+    logger.info("R^2:   %s", f"{m.r2:.3f}")
+    logger.info("SMAPE: %s", f"{m.smape:.3f}")
+    logger.info("N:     %s", m.n_test)
 
 
 def save_metrics_json(path: Path, payload: dict) -> None:
@@ -248,4 +250,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
