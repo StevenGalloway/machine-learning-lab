@@ -48,8 +48,18 @@ CFB:
 
 ## Run
 ```bash
-python points_prediction_linear_reg.py --dataset nfl
-python points_prediction_linear_reg.py --dataset cfb
+python scripts/points_prediction_linear_reg.py --dataset nfl
+python scripts/points_prediction_linear_reg.py --dataset cfb
 ```
+
+## CLI Reference
+
+```
+python scripts/points_prediction_linear_reg.py [OPTIONS]
+```
+
+| Flag | Type | Default | Choices | Description |
+|---|---|---|---|---|
+| `--dataset` | `str` | `nfl` | `nfl`, `cfb` | Which synthetic dataset to load and evaluate |
 
 ---
