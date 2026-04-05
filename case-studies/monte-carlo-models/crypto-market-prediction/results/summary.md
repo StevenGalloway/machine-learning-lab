@@ -9,12 +9,12 @@
 
 ## Simulation Results
 - Starting portfolio value: 1.0000
-- 10th percentile terminal value: 0.4198
-- Median terminal value: 0.7173
-- 90th percentile terminal value: 1.2323
-- Expected return: -21.35%
-- Probability of loss: 78.64%
-- Annualized portfolio volatility: 58.73%
+- 10th percentile terminal value: 0.5603
+- Median terminal value: 0.9197
+- 90th percentile terminal value: 1.5238
+- Expected return: -0.17%
+- Probability of loss: 58.14%
+- Annualized portfolio volatility: 56.41%
 
 ## Notes
 - This is a stochastic simulation baseline, not a deterministic prediction engine.
