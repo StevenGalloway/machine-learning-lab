@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,8 +15,21 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
+logger = logging.getLogger(__name__)
+
 TRADING_DAYS_PER_YEAR = 365
 CACHE_TTL_HOURS = 24
+
+CONFIG_PATH = Path(__file__).resolve().parents[4] / "configs" / "monte-carlo" / "crypto_market_prediction.yaml"
+
+
+def _load_yaml_config(path: Path) -> dict:
+    try:
+        import yaml
+        with path.open("r") as fh:
+            return yaml.safe_load(fh) or {}
+    except FileNotFoundError:
+        return {}
 
 
 @dataclass(slots=True)
@@ -55,7 +69,13 @@ def parse_args() -> Config:
     parser.add_argument("--refresh-cache", action="store_true", help="Force refresh of cached market data.")
     args = parser.parse_args()
 
+    # Priority: dataclass defaults < YAML config < CLI args
+    yaml_cfg = _load_yaml_config(CONFIG_PATH)
     config = Config()
+    for key, val in yaml_cfg.items():
+        if hasattr(config, key):
+            setattr(config, key, val)
+
     if args.tickers is not None:
         config.tickers = [ticker.upper() for ticker in args.tickers]
     if args.weights is not None:
@@ -309,11 +329,16 @@ def main() -> None:
     plot_portfolio_paths(portfolio_paths, PATHS_PLOT_PATH)
     plot_terminal_distribution(portfolio_paths, TERMINAL_DIST_PLOT_PATH)
     summary = payload["simulation_summary"]
-    print("------ 5-Coin Crypto Portfolio Projection ------")
-    print(f"10th percentile (bear case): {summary['terminal_value_p10']:.4f}")
-    print(f"50th percentile (median):    {summary['terminal_value_p50']:.4f}")
-    print(f"90th percentile (bull case): {summary['terminal_value_p90']:.4f}")
+    logger.info("------ 5-Coin Crypto Portfolio Projection ------")
+    logger.info("10th percentile (bear case): %s", f"{summary['terminal_value_p10']:.4f}")
+    logger.info("50th percentile (median):    %s", f"{summary['terminal_value_p50']:.4f}")
+    logger.info("90th percentile (bull case): %s", f"{summary['terminal_value_p90']:.4f}")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
