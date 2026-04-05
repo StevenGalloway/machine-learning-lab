@@ -81,6 +81,25 @@ crypto-market-prediction/
     └── stakeholders.md
 ```
 
+## CLI Reference
+
+```
+python scripts/crypto_market_prediction_mc.py [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|---|---|---|---|
+| `--tickers` | `str+` | `BTC-USD ETH-USD SOL-USD BNB-USD XRP-USD` | One or more crypto tickers (e.g. `BTC-USD ETH-USD`) |
+| `--weights` | `float+` | `0.40 0.25 0.15 0.10 0.10` | Portfolio weights aligned to ticker order; must sum to 1.0 |
+| `--lookback-period` | `str` | `2y` | yfinance lookback period (e.g. `1y`, `2y`, `5y`, `max`) |
+| `--interval` | `str` | `1d` | yfinance price interval (e.g. `1d`, `1wk`) |
+| `--forecast-days` | `int` | `180` | Number of calendar days to simulate forward |
+| `--num-paths` | `int` | `5000` | Number of Monte Carlo simulation paths |
+| `--seed` | `int` | `123` | Random seed for reproducible simulations |
+| `--refresh-cache` | flag | `False` | Force re-download of market data, ignoring the 24h cache |
+
+Defaults are loaded from `configs/monte-carlo/crypto_market_prediction.yaml`. CLI flags override YAML values.
+
 ## Enterprise-Ready Design Choices
 
 - **Caching:** Historical market data is cached in `data/` and reused until it is more than 24 hours old.
