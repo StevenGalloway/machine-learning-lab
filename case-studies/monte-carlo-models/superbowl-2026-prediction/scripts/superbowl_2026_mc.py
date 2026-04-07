@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import math
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta, timezone
@@ -17,6 +18,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.metrics import accuracy_score, brier_score_loss, log_loss, roc_auc_score
 from sklearn.frozen import FrozenEstimator  # add this import
 
+logger = logging.getLogger(__name__)
 
 # =============================================================================
 # Configuration
@@ -109,12 +111,6 @@ def cache_is_fresh(path: Path, ttl_hours: int) -> bool:
         return False
     modified = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
     return utc_now() - modified <= timedelta(hours=ttl_hours)
-
-
-import json
-import numpy as np
-import pandas as pd
-from pathlib import Path
 
 
 def make_json_safe(obj):
@@ -482,7 +478,7 @@ def train_model(matchups: pd.DataFrame, feature_cols: List[str], random_state=42
             "auc": float(roc_auc_score(y, p)),
             "accuracy": float(((p >= 0.5).astype(int) == y.values).mean()),
         }
-        print(f"{name}: {out}")
+        logger.info("%s: %s", name, out)
         return out
 
     metrics = {
@@ -734,9 +730,14 @@ def main() -> None:
 
     save_results(config, metrics, prediction, feature_cols)
 
-    print(f"P({team_a} beats {team_b}) = {p_team_a:.4f}")
-    print(f"P({team_b} beats {team_a}) = {1.0 - p_team_a:.4f}")
+    logger.info("P(%s beats %s) = %s", team_a, team_b, f"{p_team_a:.4f}")
+    logger.info("P(%s beats %s) = %s", team_b, team_a, f"{1.0 - p_team_a:.4f}")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
