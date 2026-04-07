@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,8 +15,21 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
+logger = logging.getLogger(__name__)
+
 TRADING_DAYS_PER_YEAR = 252
 CACHE_TTL_HOURS = 24
+
+CONFIG_PATH = Path(__file__).resolve().parents[4] / "configs" / "monte-carlo" / "stock_market_prediction.yaml"
+
+
+def _load_yaml_config(path: Path) -> dict:
+    try:
+        import yaml
+        with path.open("r") as fh:
+            return yaml.safe_load(fh) or {}
+    except FileNotFoundError:
+        return {}
 
 
 @dataclass(slots=True)
@@ -59,7 +73,13 @@ def parse_args() -> Config:
     parser.add_argument("--refresh-cache", action="store_true", help="Force refresh of cached market data.")
     args = parser.parse_args()
 
+    # Priority: dataclass defaults < YAML config < CLI args
+    yaml_cfg = _load_yaml_config(CONFIG_PATH)
     config = Config()
+    for key, val in yaml_cfg.items():
+        if hasattr(config, key):
+            setattr(config, key, val)
+
     if args.tickers is not None:
         config.tickers = [ticker.upper() for ticker in args.tickers]
     if args.lookback_period is not None:
@@ -353,12 +373,17 @@ def main() -> None:
     plot_terminal_distribution(portfolio_paths)
 
     summary = metrics_payload["simulation_summary"]
-    print(f"Data source:              {data_source}")
-    print(f"Starting portfolio value: {summary['starting_portfolio_value']:.2f}")
-    print(f"Expected terminal value:  {summary['terminal_value_mean']:.2f}")
-    print(f"Expected return (%):      {summary['expected_return_pct']:.2f}")
-    print(f"Probability of loss:      {summary['probability_of_loss']:.2%}")
+    logger.info("Data source:              %s", data_source)
+    logger.info("Starting portfolio value: %s", f"{summary['starting_portfolio_value']:.2f}")
+    logger.info("Expected terminal value:  %s", f"{summary['terminal_value_mean']:.2f}")
+    logger.info("Expected return (%%):      %s", f"{summary['expected_return_pct']:.2f}")
+    logger.info("Probability of loss:      %s", f"{summary['probability_of_loss']:.2%}")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
