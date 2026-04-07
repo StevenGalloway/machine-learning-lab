@@ -6,7 +6,7 @@
   "target_season": 2025,
   "neutral_site": true,
   "prediction_week": 20,
-  "generated_at_utc": "2026-03-08T02:13:27.354861+00:00",
+  "generated_at_utc": "2026-03-22T21:53:32.079081+00:00",
   "model_family": "HistGradientBoostingClassifier with isotonic calibration",
   "notes": "This case study uses gradient boosting for classification. It does not use Geometric Brownian Motion."
 }
