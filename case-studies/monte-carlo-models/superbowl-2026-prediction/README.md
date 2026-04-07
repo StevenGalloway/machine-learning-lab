@@ -21,7 +21,7 @@ pip install pandas numpy polars scikit-learn nflreadpy pyarrow
 Run the default Super Bowl-style neutral-site matchup prediction:
 
 ```bash
-python scripts/superbowl_2026_winner_prediction.py --refresh-cache
+python scripts/superbowl_2026_mc.py --refresh-cache
 ```
 
 This command will:
@@ -36,13 +36,13 @@ This command will:
 ## Recommended command
 
 ```bash
-python scripts/superbowl_2026_winner_prediction.py --team-a KC --team-b PHI --refresh-cache
+python scripts/superbowl_2026_mc.py --team-a KC --team-b PHI --refresh-cache
 ```
 
 ## One-line execution example
 
 ```bash
-python scripts/superbowl_2026_winner_prediction.py --team-a BUF --team-b SF --target-season 2025 --roll-window 8 --cache-ttl-hours 24 --refresh-cache
+python scripts/superbowl_2026_mc.py --team-a BUF --team-b SF --target-season 2025 --roll-window 8 --cache-ttl-hours 24 --refresh-cache
 ```
 
 ## Outputs
@@ -62,8 +62,7 @@ superbowl-2026-winner-prediction-hgb/
 ├── data/                         # Cached NFL play-by-play extracts
 ├── results/                      # Runtime prediction artifacts
 ├── scripts/
-│   ├── superbowl_2026_winner_prediction.py
-│   └── superbowl-2026-mc.py      # Compatibility copy of the same runtime script
+│   └── superbowl_2026_mc.py
 │
 ├── supporting-documentation/
 │   ├── data_description.md
@@ -80,6 +79,23 @@ superbowl-2026-winner-prediction-hgb/
 │
 └── README.md
 ```
+
+## CLI Reference
+
+```
+python scripts/superbowl_2026_mc.py [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|---|---|---|---|
+| `--team-a` | `str` | `NE` | First team abbreviation (e.g. `KC`, `PHI`, `BUF`) |
+| `--team-b` | `str` | `SEA` | Second team abbreviation (e.g. `SF`, `DAL`, `BAL`) |
+| `--target-season` | `int` | latest available | Season year used for feature snapshots (e.g. `2025`) |
+| `--roll-window` | `int` | `8` | Rolling window (games) for team form features |
+| `--cache-ttl-hours` | `int` | `24` | Hours before cached play-by-play data is considered stale |
+| `--refresh-cache` | flag | `False` | Force re-download of play-by-play data |
+| `--prediction-week` | `int` | `20` | Synthetic week value used for the Super Bowl matchup row |
+| `--random-state` | `int` | `42` | Random seed for the gradient boosting classifier |
 
 ## Why this model works well here
 
