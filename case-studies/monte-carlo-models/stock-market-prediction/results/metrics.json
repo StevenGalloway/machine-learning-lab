@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at_utc": "2026-03-07T21:44:46.221295+00:00",
+    "generated_at_utc": "2026-03-22T21:52:46.908774+00:00",
     "task_type": "stochastic_simulation",
     "model_family": "monte_carlo_geometric_brownian_motion",
-    "data_source": "cache",
+    "data_source": "yfinance",
     "case_study_dir": "C:/Users/Owner/Desktop/GitHub Projects/ML and DS Highlights/machine-learning-lab/case-studies/monte-carlo-models/stock-market-prediction"
   },
   "config": {
@@ -32,14 +32,14 @@
     ],
     "lookback_period": "3y",
     "observation_count": 753,
-    "start_date": "2023-03-07",
-    "end_date": "2026-03-06",
+    "start_date": "2023-03-21",
+    "end_date": "2026-03-20",
     "latest_prices": {
-      "AAPL": 257.4599914550781,
-      "MSFT": 408.9599914550781,
-      "NVDA": 177.82000732421875,
-      "AMZN": 213.2100067138672,
-      "GOOGL": 298.5199890136719
+      "AAPL": 247.99000549316406,
+      "MSFT": 381.8500061035156,
+      "NVDA": 172.92999267578125,
+      "AMZN": 205.3699951171875,
+      "GOOGL": 301.0
     },
     "portfolio_weights": {
       "AAPL": 0.2,
@@ -50,21 +50,21 @@
     }
   },
   "simulation_summary": {
-    "starting_portfolio_value": 271.1939971923828,
-    "terminal_value_mean": 375.6814543926975,
-    "terminal_value_std": 91.39967867374081,
-    "terminal_value_p05": 247.9674728102386,
-    "terminal_value_p50": 363.44834819648634,
-    "terminal_value_p95": 542.9170747655176,
-    "expected_return_pct": 38.52867625465623,
-    "probability_of_loss": 0.109,
-    "annualized_portfolio_volatility": 0.23910082254184375,
+    "starting_portfolio_value": 261.8279998779297,
+    "terminal_value_mean": 349.37760133174675,
+    "terminal_value_std": 84.51558248511378,
+    "terminal_value_p05": 230.90931145002963,
+    "terminal_value_p50": 338.24330458891006,
+    "terminal_value_p95": 503.6789328147363,
+    "expected_return_pct": 33.43782998557629,
+    "probability_of_loss": 0.136,
+    "annualized_portfolio_volatility": 0.23765500435758505,
     "historical_annualized_log_return_by_asset": {
-      "AAPL": 0.182298583079011,
-      "MSFT": 0.16725114927115314,
-      "NVDA": 0.6814938900131526,
-      "AMZN": 0.2760544527885084,
-      "GOOGL": 0.3902514669318464
+      "AAPL": 0.15317978955662095,
+      "MSFT": 0.11933440080847973,
+      "NVDA": 0.6326977718202884,
+      "AMZN": 0.23911902811153413,
+      "GOOGL": 0.35593094771735084
     }
   },
   "artifacts": {
