@@ -39,7 +39,7 @@ This command will:
 ## One-Line Execution Example
 
 ```bash
-python case-studies/monte-carlo-models/stock-market-prediction-montecarlo/scripts/stock_market_monte_carlo.py --tickers AAPL MSFT NVDA AMZN GOOGL --forecast-days 252 --num-paths 5000 --refresh-cache
+python case-studies/monte-carlo-models/stock-market-prediction/scripts/stock_market_monte_carlo.py --tickers AAPL MSFT NVDA AMZN GOOGL --forecast-days 252 --num-paths 5000 --refresh-cache
 ```
 
 This shows the project is configurable and reproducible instead of being a hard-coded notebook exercise.
@@ -56,7 +56,7 @@ Running the script generates the following artifacts:
 ## Project Structure
 
 ```text
-stock-market-prediction-montecarlo/
+stock-market-prediction/
 ├── README.md
 ├── data/
 │   └── cached_prices.csv
@@ -66,8 +66,7 @@ stock-market-prediction-montecarlo/
 │   ├── portfolio_paths.png
 │   └── terminal_value_distribution.png
 ├── scripts/
-│   ├── stock_market_monte_carlo.py
-│   └── stock_market_monte-carlo.py
+│   └── stock_market_monte_carlo.py
 └── supporting-documentation/
     ├── data_description.md
     ├── deployment_plan.md
@@ -81,6 +80,24 @@ stock-market-prediction-montecarlo/
     ├── risk_analysis.md
     └── stakeholders.md
 ```
+
+## CLI Reference
+
+```
+python scripts/stock_market_monte_carlo.py [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|---|---|---|---|
+| `--tickers` | `str+` | `AAPL MSFT NVDA AMZN GOOGL` | One or more equity tickers (e.g. `AAPL MSFT TSLA`) |
+| `--lookback-period` | `str` | `3y` | yfinance lookback period (e.g. `1y`, `3y`, `5y`, `max`) |
+| `--forecast-days` | `int` | `252` | Number of trading days to simulate (~1 year at 252 days) |
+| `--num-paths` | `int` | `5000` | Number of Monte Carlo simulation paths |
+| `--seed` | `int` | `123` | Random seed for reproducible simulations |
+| `--risk-free-rate` | `float` | `0.0` | Annualized risk-free rate for documentation context |
+| `--refresh-cache` | flag | `False` | Force re-download of market data, ignoring the 24h cache |
+
+Portfolio weights are always equal-weighted and computed from the number of tickers. Defaults are loaded from `configs/monte-carlo/stock_market_prediction.yaml`.
 
 ## Enterprise-Ready Design Choices
 
