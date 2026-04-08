@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 import json
+import joblib
 import numpy as np
 import pandas as pd
 
@@ -21,12 +23,43 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 
+logger = logging.getLogger(__name__)
+
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
 
-CASE_STUDY_DIR = Path("case-studies/random-forest-models/loan-default-prediction")
+CASE_STUDY_DIR = Path(__file__).parent.parent
+CONFIG_PATH = Path(__file__).resolve().parents[4] / "configs" / "random-forest" / "loan_default_prediction.yaml"
+
+
+def _load_config() -> dict:
+    defaults = {
+        "random_state": RANDOM_STATE,
+        "test_size": TEST_SIZE,
+        "max_fpr": 0.35,
+        "baseline": {"max_iter": 1200, "solver": "lbfgs"},
+        "random_forest": {
+            "n_estimators": 500, "max_depth": None, "min_samples_split": 2,
+            "min_samples_leaf": 1, "max_features": "sqrt",
+            "class_weight": "balanced_subsample", "n_jobs": 2,
+            "calibration_method": "isotonic", "calibration_cv": 3,
+        },
+    }
+    try:
+        import yaml
+        with CONFIG_PATH.open("r") as fh:
+            loaded = yaml.safe_load(fh) or {}
+        for key, val in loaded.items():
+            if isinstance(val, dict) and isinstance(defaults.get(key), dict):
+                defaults[key].update(val)
+            else:
+                defaults[key] = val
+    except FileNotFoundError:
+        pass
+    return defaults
 DATA_DIR = CASE_STUDY_DIR / "data"
 RESULTS_DIR = CASE_STUDY_DIR / "results"
+MODELS_DIR = CASE_STUDY_DIR / "models"
 DATA_PATH = DATA_DIR / "personal_loan_default_synthetic_1500.csv"
 TARGET_COL = "default"  # 1=default, 0=no default
 SENSITIVE_COLS = ["sex"]
@@ -79,13 +112,16 @@ def get_rf_feature_importances(model_pipeline) -> np.ndarray:
     raise AttributeError("Could not find feature_importances_ in model or its calibrated base estimators.")
 
 def main() -> None:
+    cfg = _load_config()
+    rng = cfg["random_state"]
+
     df = pd.read_csv(DATA_PATH)
     X = df.drop(columns=[TARGET_COL])
     y = df[TARGET_COL].astype(int)
 
     num_cols = X.select_dtypes(include=["number", "bool"]).columns.tolist()
     cat_cols = X.select_dtypes(exclude=["number", "bool"]).columns.tolist()
-    
+
     num_pipe = Pipeline([
         ("imputer", SimpleImputer(strategy="median")),
         ("scaler", StandardScaler()),
@@ -100,31 +136,34 @@ def main() -> None:
     ])
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
+        X, y, test_size=cfg["test_size"], random_state=rng, stratify=y
     )
+
+    rf_cfg = cfg["random_forest"]
+    bl_cfg = cfg["baseline"]
 
     baseline = Pipeline([
         ("preprocess", preprocess),
-        ("clf", LogisticRegression(max_iter=1200, solver="lbfgs"))
+        ("clf", LogisticRegression(max_iter=bl_cfg["max_iter"], solver=bl_cfg["solver"]))
     ])
     baseline.fit(X_train, y_train)
     base_prob = baseline.predict_proba(X_test)[:, 1]
     base_auc = float(roc_auc_score(y_test, base_prob))
 
     rf_raw = RandomForestClassifier(
-        n_estimators=500,
-        max_depth=None,
-        min_samples_split=2,
-        min_samples_leaf=1,
-        max_features="sqrt",
-        class_weight="balanced_subsample",
-        random_state=RANDOM_STATE,
-        n_jobs=2,
+        n_estimators=rf_cfg["n_estimators"],
+        max_depth=rf_cfg["max_depth"],
+        min_samples_split=rf_cfg["min_samples_split"],
+        min_samples_leaf=rf_cfg["min_samples_leaf"],
+        max_features=rf_cfg["max_features"],
+        class_weight=rf_cfg["class_weight"],
+        random_state=rng,
+        n_jobs=rf_cfg["n_jobs"],
     )
 
     rf = Pipeline([
         ("preprocess", preprocess),
-        ("clf", CalibratedClassifierCV(rf_raw, method="isotonic", cv=3)
+        ("clf", CalibratedClassifierCV(rf_raw, method=rf_cfg["calibration_method"], cv=rf_cfg["calibration_cv"])
         )
     ])
     
@@ -149,7 +188,7 @@ def main() -> None:
     plt.savefig(RESULTS_DIR / "roc_curve.png", dpi=150)
     plt.close()
 
-    best = choose_cost_aware_threshold(y_test.to_numpy(), rf_prob, max_fpr=0.35)
+    best = choose_cost_aware_threshold(y_test.to_numpy(), rf_prob, max_fpr=cfg["max_fpr"])
     pred_best = (rf_prob >= best["threshold"]).astype(int)
     cm = confusion_matrix(y_test, pred_best, labels=[0, 1])
     plt.figure(figsize=(5.8, 4.6))
@@ -213,9 +252,19 @@ def main() -> None:
     }
     (RESULTS_DIR / "metrics.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
-    print(f"Baseline LogReg ROC AUC: {base_auc:.3f}")
-    print(f"RandomForest ROC AUC:    {rf_auc:.3f}")
-    print(f"Cost-aware threshold:    {best['threshold']:.2f} (FNR={best['fnr']:.3f}, FPR={best['fpr']:.3f})")
+    MODELS_DIR.mkdir(parents=True, exist_ok=True)
+    model_path = MODELS_DIR / "loan_default_rf_pipeline.joblib"
+    joblib.dump({"pipeline": rf, "threshold": best["threshold"]}, model_path)
+
+    logger.info("Baseline LogReg ROC AUC: %s", f"{base_auc:.3f}")
+    logger.info("RandomForest ROC AUC:    %s", f"{rf_auc:.3f}")
+    logger.info("Cost-aware threshold:    %s (FNR=%s, FPR=%s)", f"{best['threshold']:.2f}", f"{best['fnr']:.3f}", f"{best['fpr']:.3f}")
+    logger.info("Model saved to:          %s", model_path.resolve())
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
