@@ -12,7 +12,7 @@
       "sex"
     ],
     "deployment_target": "real_time_api",
-    "dataset_path": "case-studies/random-forest-models/loan-default-prediction/data/personal_loan_default_synthetic_1500.csv"
+    "dataset_path": "c:/Users/Owner/Desktop/GitHub Projects/ML and DS Highlights/machine-learning-lab/case-studies/random-forest-models/loan-default-prediction/data/personal_loan_default_synthetic_1500.csv"
   },
   "baseline_logistic_regression": {
     "roc_auc": 0.6703842334428234
