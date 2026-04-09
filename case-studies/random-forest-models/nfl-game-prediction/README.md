@@ -18,13 +18,29 @@ python scripts/nfl_game_prediction_random_forest.py
 - `supporting-documentation/` (model card, risk analysis, monitoring plan, etc.)
 
 ## Data
-Default data file:
-- `/mnt/data/ml-lab_repo/case-studies/random-forest-models/nfl-game-prediction/data/spreadspoke_scores_sample.csv` (synthetic sample included so the repo runs end-to-end)
+Default data file: `data/spreadspoke_scores_sample.csv` (synthetic sample included so the repo runs end-to-end)
 
 To use real historical data, drop your dataset into `data/` and pass:
 ```bash
 python scripts/nfl_game_prediction_random_forest.py --data data/<your_file.csv>
 ```
+
+## CLI Reference
+
+```
+python scripts/nfl_game_prediction_random_forest.py [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|---|---|---|---|
+| `--data` | `str` | `data/spreadspoke_scores_sample.csv` | Path to the historical scores CSV |
+| `--predict-home` | `str` | `Baltimore Ravens` | Home team name for the example prediction |
+| `--predict-away` | `str` | `Pittsburgh Steelers` | Away team name for the example prediction |
+| `--predict-season` | `int` | `2025` | Season year for the example prediction row |
+| `--predict-week` | `int` | `3` | Week number for the example prediction row |
+| `--regen-static` | flag | `False` | Regenerate static markdown docs in `supporting-documentation/` |
+
+Defaults for `--predict-home`, `--predict-away`, and `--predict-season` are loaded from `configs/random-forest/nfl_game_prediction.yaml`.
 
 ## Why Random Forest here (vs linear / NB / XGBoost)
 - Captures **non-linearities and interactions** with minimal feature engineering
