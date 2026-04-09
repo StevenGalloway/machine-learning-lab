@@ -5,6 +5,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import logging
 from typing import Any, Dict, Tuple, List
 
 import numpy as np
@@ -33,12 +34,49 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+logger = logging.getLogger(__name__)
 
-# Global
+# Global — values are overridden by YAML config at load time
 RANDOM_STATE = 42
 TEST_SIZE = 0.20
 
 CASE_STUDY_DIR = Path(__file__).resolve().parents[1]
+CONFIG_PATH = Path(__file__).resolve().parents[4] / "configs" / "random-forest" / "nfl_game_prediction.yaml"
+
+
+def _load_config() -> dict:
+    defaults = {
+        "random_state": RANDOM_STATE,
+        "test_size": TEST_SIZE,
+        "baseline": {"max_iter": 1000, "solver": "lbfgs"},
+        "random_forest": {
+            "n_estimators": 500, "max_depth": None, "min_samples_leaf": 2,
+            "min_samples_split": 4, "class_weight": "balanced", "n_jobs": -1,
+            "calibration_method": "isotonic", "calibration_cv": 3,
+        },
+        "default_prediction": {
+            "home_team": "Baltimore Ravens",
+            "away_team": "Pittsburgh Steelers",
+            "season": 2025,
+        },
+    }
+    try:
+        import yaml
+        with CONFIG_PATH.open("r") as fh:
+            loaded = yaml.safe_load(fh) or {}
+        for key, val in loaded.items():
+            if isinstance(val, dict) and isinstance(defaults.get(key), dict):
+                defaults[key].update(val)
+            else:
+                defaults[key] = val
+    except FileNotFoundError:
+        pass
+    return defaults
+
+
+_CFG = _load_config()
+RANDOM_STATE = _CFG["random_state"]
+TEST_SIZE = _CFG["test_size"]
 DATA_DIR = CASE_STUDY_DIR / "data"
 RESULTS_DIR = CASE_STUDY_DIR / "results"
 DOCS_DIR = CASE_STUDY_DIR / "supporting-documentation"
@@ -148,21 +186,24 @@ def build_pipelines(df: pd.DataFrame) -> Tuple[Pipeline, Pipeline, List[str]]:
         remainder="drop",
     )
 
+    bl_cfg = _CFG["baseline"]
+    rf_cfg = _CFG["random_forest"]
+
     baseline = Pipeline(steps=[
         ("pre", pre),
-        ("clf", LogisticRegression(max_iter=1000, solver="lbfgs", n_jobs=None, random_state=RANDOM_STATE)),
+        ("clf", LogisticRegression(max_iter=bl_cfg["max_iter"], solver=bl_cfg["solver"], n_jobs=None, random_state=RANDOM_STATE)),
     ])
 
     rf = RandomForestClassifier(
-        n_estimators=500,
-        max_depth=None,
-        min_samples_leaf=2,
-        min_samples_split=4,
-        class_weight="balanced",
-        n_jobs=-1,
+        n_estimators=rf_cfg["n_estimators"],
+        max_depth=rf_cfg["max_depth"],
+        min_samples_leaf=rf_cfg["min_samples_leaf"],
+        min_samples_split=rf_cfg["min_samples_split"],
+        class_weight=rf_cfg["class_weight"],
+        n_jobs=rf_cfg["n_jobs"],
         random_state=RANDOM_STATE,
     )
-    rf_calibrated = CalibratedClassifierCV(rf, method="isotonic", cv=3)
+    rf_calibrated = CalibratedClassifierCV(rf, method=rf_cfg["calibration_method"], cv=rf_cfg["calibration_cv"])
 
     model = Pipeline(steps=[
         ("pre", pre),
@@ -269,9 +310,10 @@ def main() -> None:
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", type=str, default=str(DEFAULT_DATA), help="Path to CSV dataset")
-    parser.add_argument("--predict-home", type=str, default="Baltimore Ravens")
-    parser.add_argument("--predict-away", type=str, default="Pittsburgh Steelers")
-    parser.add_argument("--predict-season", type=int, default=2025)
+    _dp = _CFG["default_prediction"]
+    parser.add_argument("--predict-home", type=str, default=_dp["home_team"])
+    parser.add_argument("--predict-away", type=str, default=_dp["away_team"])
+    parser.add_argument("--predict-season", type=int, default=_dp["season"])
     parser.add_argument("--predict-week", type=int, default=3)
     parser.add_argument("--regen-static", action="store_true", help="Regenerate static docs/markdown artifacts")
     args = parser.parse_args()
@@ -385,10 +427,15 @@ def main() -> None:
     # JSON is regenerated every run
     write_metrics_json(payload)
 
-    print(f"Holdout AUC (RF): {rf_auc:.3f}")
-    print(f"Example prediction: P(home_win)={pred_payload['p_home_win']:.3f} for {query.home_team} vs {query.away_team}")
-    print("Regenerated each run: results/metrics.json + PNGs in results/")
+    logger.info("Holdout AUC (RF): %s", f"{rf_auc:.3f}")
+    logger.info("Example prediction: P(home_win)=%s for %s vs %s", f"{pred_payload['p_home_win']:.3f}", query.home_team, query.away_team)
+    logger.info("Regenerated each run: results/metrics.json + PNGs in results/")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
