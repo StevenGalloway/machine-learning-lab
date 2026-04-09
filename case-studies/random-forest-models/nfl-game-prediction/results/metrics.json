@@ -3,16 +3,17 @@
     "task_type": "classification",
     "use_case": "nfl_home_win_prediction",
     "primary_metric": "roc_auc",
-    "data_path": "/mnt/data/ml-lab_repo/case-studies/nfl-game-prediction/data/spreadspoke_scores_sample.csv",
+    "data_path": "C:\\Users\\Owner\\Desktop\\GitHub Projects\\ML and DS Highlights\\machine-learning-lab\\case-studies\\random-forest-models\\nfl-game-prediction\\data\\spreadspoke_scores_sample.csv",
     "dataset_sha256": "e4d108fae14776876eaa9b9e17991c9576ac0c523a35156a8ee3f0941475d38c",
     "split_strategy": "season_aware_holdout",
-    "test_rows": 260
+    "test_rows": 260,
+    "random_state": 42
   },
   "baseline": {
     "accuracy": 0.8384615384615385,
     "roc_auc": 0.929666686401042,
-    "brier": 0.10846260927505252,
-    "log_loss": 0.33690077270707486,
+    "brier": 0.10846311291549998,
+    "log_loss": 0.3369112813287658,
     "precision": 0.8226950354609929,
     "recall": 0.8721804511278195,
     "f1": 0.8467153284671532,
@@ -40,11 +41,10 @@
     }
   },
   "artifacts": {
-    "roc_curve_png": "results/roc_curve.png",
-    "confusion_matrix_png": "results/confusion_matrix.png",
-    "feature_importance_png": "results/feature_importance_top20.png",
-    "baseline_results_md": "results/baseline_results.md",
-    "success_metrics_md": "results/success_metrics.md"
+    "roc_curve_png": "results\\roc_curve.png",
+    "confusion_matrix_png": "results\\confusion_matrix.png",
+    "feature_importance_png": "results\\feature_importance_top20.png",
+    "metrics_json": "results/metrics.json"
   },
   "prediction_example": {
     "query": {
