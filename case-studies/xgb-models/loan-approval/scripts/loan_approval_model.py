@@ -18,6 +18,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import json
+import logging
 
 import numpy as np
 import pandas as pd
@@ -37,6 +38,7 @@ try:
 except Exception:
     XGB_AVAILABLE = False
 
+logger = logging.getLogger(__name__)
 
 # -------------------------
 # Global configuration
@@ -177,17 +179,17 @@ def choose_threshold_by_precision(
 
 def pretty_print(name: str, m: Metrics, threshold: float | None = None) -> None:
     """Print metrics in an executive-friendly format."""
-    print(f"\n=== {name} ===")
+    logger.info("\n=== %s ===", name)
     if threshold is not None:
-        print(f"Threshold: {threshold:.3f}")
-    print(f"Confusion Matrix (approved=positive): TN={m.tn}, FP={m.fp}, FN={m.fn}, TP={m.tp}")
-    print(f"Accuracy:      {m.accuracy:.3f}")
-    print(f"ROC AUC:       {m.roc_auc:.3f}")
-    print(f"Precision(PPV):{m.precision_ppv:.3f}  (of predicted approvals, how many match historical approvals)")
-    print(f"Recall:        {m.recall_sensitivity:.3f}  (of historical approvals, how many we capture)")
-    print(f"Specificity:   {m.specificity:.3f}  (of historical rejections, how many we keep rejected)")
-    print(f"F1:            {m.f1:.3f}")
-    print(f"Brier:         {m.brier:.3f}  (probability calibration)")
+        logger.info("Threshold: %s", f"{threshold:.3f}")
+    logger.info("Confusion Matrix (approved=positive): TN=%s, FP=%s, FN=%s, TP=%s", m.tn, m.fp, m.fn, m.tp)
+    logger.info("Accuracy:      %s", f"{m.accuracy:.3f}")
+    logger.info("ROC AUC:       %s", f"{m.roc_auc:.3f}")
+    logger.info("Precision(PPV):%s  (of predicted approvals, how many match historical approvals)", f"{m.precision_ppv:.3f}")
+    logger.info("Recall:        %s  (of historical approvals, how many we capture)", f"{m.recall_sensitivity:.3f}")
+    logger.info("Specificity:   %s  (of historical rejections, how many we keep rejected)", f"{m.specificity:.3f}")
+    logger.info("F1:            %s", f"{m.f1:.3f}")
+    logger.info("Brier:         %s  (probability calibration)", f"{m.brier:.3f}")
 
 
 def save_metrics_json(path: Path, payload: dict) -> None:
@@ -305,4 +307,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
