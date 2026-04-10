@@ -1,0 +1,44 @@
+flowchart TD
+    ROOT["machine-learning-lab"]
+
+    ROOT --> CS["case-studies/"]
+    ROOT --> NB["notebooks/jupyter/"]
+    ROOT --> DOCS["docs/"]
+    ROOT --> CFG["configs/"]
+
+    %% ── Case Studies ──────────────────────────────────────────────
+    CS --> LR["linear-regression-models/"]
+    CS --> RF["random-forest-models/"]
+    CS --> XGB["xgb-models/"]
+    CS --> MC["monte-carlo-models/"]
+    CS --> NB2["naives-bayes-models/"]
+    CS --> CNN["convolutional-models/"]
+
+    LR --> LR1["basketball-points-prediction<br/>Multi-feature OLS regression"]
+    LR --> LR2["football-points-prediction<br/>Single-feature OLS · NFL + CFB"]
+
+    RF --> RF1["loan-default-prediction<br/>Calibrated RF · FastAPI endpoint"]
+    RF --> RF2["nfl-game-prediction<br/>Calibrated RF · Brier score"]
+
+    XGB --> XGB1["breast-cancer<br/>XGBoost · high-sensitivity threshold"]
+    XGB --> XGB2["loan-approval<br/>XGBoost · precision-floor threshold"]
+
+    MC --> MC1["crypto-market-prediction<br/>GBM · 5-coin portfolio · Cholesky"]
+    MC --> MC2["stock-market-prediction<br/>GBM · equal-weight equities"]
+    MC --> MC3["superbowl-2026-prediction<br/>HistGradientBoosting · Elo features"]
+
+    NB2 --> NB1["text-sender-identification<br/>MultinomialNB · batch + live"]
+
+    CNN --> CNN1["handwriting-recognition<br/>CNN · Keras · Gradio demo app"]
+
+    %% ── Notebooks ────────────────────────────────────────────────
+    NB --> NB3["nba-points-prediction<br/>Random Forest · Jupyter"]
+    NB --> NB4["nfl-passing-yards-prediction<br/>Linear Regression · Jupyter"]
+    NB --> NB5["weather-prediction<br/>Markov Chain · stationary distribution"]
+
+    %% ── Shared infrastructure ────────────────────────────────────
+    CFG --> CFG1["monte-carlo/<br/>crypto + stock YAML configs"]
+    CFG --> CFG2["random-forest/<br/>loan-default + nfl YAML configs"]
+
+    DOCS --> DOCS1["referential/<br/>20 algorithm + MLOps reference docs"]
+    DOCS --> DOCS2["diagrams/<br/>repo + lifecycle topology diagrams"]
