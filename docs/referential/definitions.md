@@ -13,8 +13,8 @@ Trees, Gradient Boosting
 Example repo: [Ravens & Steelers Game Prediction (NFL) Random Forest Model](case-studies/nfl-game-prediction/scripts/nfl_game_prediction_random_forest.py)
 Example repo: [Breast Cancer Identification (XGBoost)](case-studies\breast-cancer-xgb\scripts\train_eval.py)
 Example repo: [Loan Approval (XGBoost)](case-studies\loan-approval-xgb\scripts\train_eval.py)
-Example repo: [Football Points Prediction (Linear Regression)](case-studies\football-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
-Example repo: [Basketball Points Prediction (Linear Regression)](case-studies\basketball-points-prediction-linear-reg\scripts\points-prediction-linear-reg.py)
+Example repo: [Football Points Prediction (Linear Regression)](case-studies/linear-regression-models/football-points-prediction/scripts/points_prediction_linear_reg.py)
+Example repo: [Basketball Points Prediction (Linear Regression)](case-studies/linear-regression-models/basketball-points-prediction/scripts/points_prediction_linear_reg.py)
 
 **Pros** - High predictive accuracy when labels are reliable - Easier
 evaluation (clear ground truth)
