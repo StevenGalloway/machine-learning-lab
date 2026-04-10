@@ -1,0 +1,55 @@
+flowchart LR
+    %% ── Data layer ───────────────────────────────────────────────
+    subgraph DATA["Data Sources"]
+        D1["Synthetic CSVs<br/>loan, sports, text"]
+        D2["sklearn built-ins<br/>breast cancer"]
+        D3["yfinance API<br/>stocks + crypto · 24h cache"]
+        D4["nflreadpy API<br/>NFL play-by-play"]
+        D5["EMNIST CSV<br/>handwriting"]
+    end
+
+    %% ── Config layer ────────────────────────────────────────────
+    subgraph CFG["Configuration · configs/"]
+        C1["YAML configs<br/>hyperparams · tickers · thresholds"]
+    end
+
+    %% ── Training layer ──────────────────────────────────────────
+    subgraph TRAIN["Training Scripts · case-studies/"]
+        T1["Linear Regression<br/>OLS · MAE · R²"]
+        T2["Random Forest<br/>Calibrated · Brier · fairness slice"]
+        T3["XGBoost<br/>Threshold selection · ROC AUC"]
+        T4["Monte Carlo GBM<br/>Cholesky · percentile paths"]
+        T5["HistGradientBoosting<br/>Elo features · isotonic calibration"]
+        T6["Naive Bayes<br/>MultinomialNB · batch + live"]
+        T7["CNN<br/>Keras · 26-class · Gradio demo"]
+    end
+
+    %% ── Artifact layer ──────────────────────────────────────────
+    subgraph ART["Artifacts · results/"]
+        A1["metrics.json<br/>structured model output"]
+        A2["PNG plots<br/>ROC · confusion matrix · paths"]
+        A3["models/<br/>joblib pipeline + threshold"]
+        A4["summary.md<br/>human-readable run summary"]
+    end
+
+    %% ── Serving layer ───────────────────────────────────────────
+    subgraph SERVE["Serving"]
+        S1["FastAPI endpoint<br/>POST /v1/score · GET /health"]
+        S2["Gradio web app<br/>live handwriting demo"]
+    end
+
+    %% ── Documentation layer ─────────────────────────────────────
+    subgraph GOVDOC["Governance Docs · supporting-documentation/"]
+        G1["model_card.md"]
+        G2["monitoring_plan.md"]
+        G3["risk_analysis.md"]
+        G4["deployment_plan.md"]
+        G5["feature_dictionary.md"]
+    end
+
+    %% ── Flow ────────────────────────────────────────────────────
+    DATA --> TRAIN
+    CFG  --> TRAIN
+    TRAIN --> ART
+    ART  --> SERVE
+    ART  --> GOVDOC
