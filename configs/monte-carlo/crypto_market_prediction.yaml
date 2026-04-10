@@ -1,0 +1,32 @@
+# =============================================================================
+# Crypto Market Prediction — Monte Carlo Configuration
+# =============================================================================
+# All values here are the source of truth for default run parameters.
+# CLI arguments override these values at runtime.
+# =============================================================================
+
+# --- Portfolio -----------------------------------------------------------------
+tickers:
+  - BTC-USD
+  - ETH-USD
+  - SOL-USD
+  - BNB-USD
+  - XRP-USD
+
+weights:
+  - 0.40
+  - 0.25
+  - 0.15
+  - 0.10
+  - 0.10
+
+# --- Market data ---------------------------------------------------------------
+lookback_period: "2y"       # yfinance period string: 1y, 2y, 5y, max
+interval: "1d"              # yfinance interval: 1d, 1wk
+cache_ttl_hours: 24         # hours before cached price data is considered stale
+trading_days_per_year: 365  # crypto markets trade every day
+
+# --- Simulation ----------------------------------------------------------------
+forecast_days: 180          # calendar days to simulate forward
+num_paths: 5000             # number of Monte Carlo paths
+seed: 123                   # random seed for reproducibility

@@ -1,0 +1,32 @@
+# =============================================================================
+# Loan Default Prediction — Random Forest Configuration
+# =============================================================================
+# All values here are the source of truth for model hyperparameters and
+# evaluation thresholds. Edit this file to retune without touching source code.
+# =============================================================================
+
+# --- Experiment ----------------------------------------------------------------
+random_state: 42
+test_size: 0.20
+
+# --- Threshold policy ----------------------------------------------------------
+# Cost-aware threshold: minimise false negatives subject to FPR <= max_fpr.
+# False negatives (approved loans that default) are the costliest outcome.
+max_fpr: 0.35
+
+# --- Baseline model ------------------------------------------------------------
+baseline:
+  max_iter: 1200
+  solver: lbfgs
+
+# --- Random Forest -------------------------------------------------------------
+random_forest:
+  n_estimators: 500
+  max_depth: null           # null = grow until leaves are pure
+  min_samples_split: 2
+  min_samples_leaf: 1
+  max_features: sqrt
+  class_weight: balanced_subsample   # handles class imbalance per tree
+  n_jobs: 2
+  calibration_method: isotonic
+  calibration_cv: 3

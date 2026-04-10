@@ -1,0 +1,33 @@
+# =============================================================================
+# NFL Game Prediction — Random Forest Configuration
+# =============================================================================
+# All values here are the source of truth for model hyperparameters and the
+# default prediction matchup. Edit this file to retune without touching source.
+# =============================================================================
+
+# --- Experiment ----------------------------------------------------------------
+random_state: 42
+test_size: 0.20             # used only when season-aware split is not possible
+
+# --- Baseline model ------------------------------------------------------------
+baseline:
+  max_iter: 1000
+  solver: lbfgs
+
+# --- Random Forest -------------------------------------------------------------
+random_forest:
+  n_estimators: 500
+  max_depth: null           # null = grow until leaves are pure
+  min_samples_leaf: 2
+  min_samples_split: 4
+  class_weight: balanced
+  n_jobs: -1                # use all available cores
+  calibration_method: isotonic
+  calibration_cv: 3
+
+# --- Default prediction matchup -----------------------------------------------
+# Used when no --predict-home / --predict-away CLI args are supplied.
+default_prediction:
+  home_team: "Baltimore Ravens"
+  away_team: "Pittsburgh Steelers"
+  season: 2025
