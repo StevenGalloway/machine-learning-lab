@@ -4,11 +4,13 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 import json
+import logging
 import random
 
 import matplotlib.pyplot as plt
 import numpy as np
 
+logger = logging.getLogger(__name__)
 
 @dataclass(frozen=True)
 class Config:
@@ -117,9 +119,14 @@ def main() -> None:
     with open(config.output_dir / config.metrics_file, "w", encoding="utf-8") as f:
         json.dump(metrics, f, indent=2)
 
-    print(f"Saved metrics to: {config.output_dir / config.metrics_file}")
-    print(f"Saved chart to: {config.output_dir / config.chart_file}")
+    logger.info("Saved metrics to: %s", config.output_dir / config.metrics_file)
+    logger.info("Saved chart to: %s", config.output_dir / config.chart_file)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     main()
